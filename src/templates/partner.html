@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% set pt = c.partner %}
+{% block main %}
+<section class="dark dots page-head partner-head" aria-labelledby="page-title">
+  <svg class="climb-side" viewBox="0 0 400 380" aria-hidden="true">{{ climb_paths | safe }}</svg>
+  <div class="wrap">
+    <p class="kicker">{{ ic.handshake | safe }}{{ pt.name }}</p>
+    <h1 id="page-title">{{ pt.h1 }}</h1>
+    <p class="lead">{{ pt.lead }}</p>
+    <div class="hero-actions"><a class="btn btn-primary" href="{{ prefix }}/contact/">{{ pt.cta }}{{ ic.arrow | safe }}</a></div>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="for-title">
+  <div class="wrap">
+    <div class="section-head"><h2 class="h2" id="for-title" data-reveal>{{ pt.for_title }}</h2></div>
+    <ul class="for-grid">{% for f in pt['for'] %}<li data-reveal data-d="{{ loop.index0 }}"><span class="num">{{ '%02d' % loop.index }}</span><h3>{{ f.name }}</h3><p>{{ f.text }}</p></li>{% endfor %}</ul>
+  </div>
+</section>
+
+<section class="section mist" aria-labelledby="models-title">
+  <div class="wrap">
+    <div class="section-head"><h2 class="h2" id="models-title" data-reveal>{{ pt.models_title }}</h2></div>
+    <div class="models">
+      {% for m in pt.models %}
+      <article class="model{% if m.featured %} featured{% endif %}" data-reveal data-d="{{ loop.index0 }}">
+        {% if m.badge %}<span class="badge">{{ m.badge }}</span>{% endif %}
+        <h3>{{ m.name }}</h3><p>{{ m.text }}</p>
+        <ul>{% for pnt in m.points %}<li>{{ ic.check | safe }}<span>{{ pnt }}</span></li>{% endfor %}</ul>
+        <a class="btn {{ 'btn-primary' if m.featured else 'btn-dark' }}" href="{{ prefix }}/contact/">{{ pt.cta }}</a>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section dark dots" aria-labelledby="inc-title">
+  {{ supergraphic | safe }}
+  <div class="wrap">
+    <div class="section-head"><h2 class="h2" id="inc-title" data-reveal>{{ pt.includes_title }}</h2></div>
+    <ul class="inc-grid">{% for i in pt.includes %}<li data-reveal data-d="{{ loop.index0 % 3 }}"><span class="ii">{{ ic.check | safe }}</span><h3>{{ i.name }}</h3><p>{{ i.text }}</p></li>{% endfor %}</ul>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="steps-title">
+  <div class="wrap">
+    <div class="section-head"><h2 class="h2" id="steps-title" data-reveal>{{ pt.steps_title }}</h2></div>
+    <ol class="steps five" data-steps>{% for st in pt.steps %}<li><h3>{{ st.name }}</h3><p>{{ st.text }}</p></li>{% endfor %}</ol>
+  </div>
+</section>
+
+<section class="section mist" aria-labelledby="what-title">
+  <div class="wrap">
+    <div class="section-head"><h2 class="h2" id="what-title" data-reveal>{{ pt.what_title }}</h2><p class="lead" data-reveal data-d="1">{{ pt.what_text }}</p></div>
+    <ul class="offer-grid">{% for svc in c.categories[0].services %}<li data-reveal data-d="{{ loop.index0 }}"><span class="ico">{{ ic[svc.id] | safe }}</span><b>{{ svc.name }}</b><span>{{ svc.short }}</span></li>{% endfor %}</ul>
+  </div>
+</section>
+{% endblock %}

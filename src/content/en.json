@@ -13,7 +13,8 @@
     "menu": "Menu",
     "close": "Close menu",
     "all_services": "All services",
-    "services_menu": "Explore our services"
+    "services_menu": "Explore our services",
+    "partner": "Partnership"
   },
   "logo_alt": "Peaker home",
   "tagline": "From foundation to peak.",
@@ -54,7 +55,7 @@
     ],
     "pains_close": "We fix the foundation, so everything built on it performs.",
     "services_title": "What we do",
-    "services_lead": "One service or the whole build. Everything we deliver comes with someone to call after launch.",
+    "services_lead": "Development and marketing under one roof, plus white-label delivery for agencies.",
     "details": "Details",
     "process_title": "How a project runs",
     "process": [
@@ -125,7 +126,8 @@
     "game_title": "Take a break. Play something we built.",
     "game_text": "Vault Runner is a small arcade game written in plain JavaScript. Collect coins, dodge the chasers, and see how far you get.",
     "game_play": "Play Vault Runner",
-    "game_open": "Open full screen"
+    "game_open": "Open full screen",
+    "marquee_override": true
   },
   "services": [
     {
@@ -270,8 +272,8 @@
     "title": "Services | Peaker",
     "description": "Websites, online stores, ERP and CRM, integrations, custom software, game development, marketing, design, full builds, hosting and white-label delivery.",
     "h1": "Services",
-    "lead": "Everything a growing business needs built properly, from the systems underneath to the marketing on top.",
-    "includes": "What's included"
+    "lead": "Development, marketing and white-label partnership. Pick one service or bring us the whole project.",
+    "includes": "What we deliver"
   },
   "odoo_page": {
     "title": "Odoo ERP and CRM | Peaker",
@@ -410,7 +412,7 @@
       },
       {
         "num": "11",
-        "text": "Services under one roof"
+        "text": "Services across development and marketing"
       },
       {
         "num": "2",
@@ -434,16 +436,17 @@
       "phone": "Phone or WhatsApp",
       "service": "What do you need help with?",
       "service_options": [
-        "Website or landing page",
-        "Online store",
-        "ERP and CRM",
-        "Integrations and automation",
-        "Custom software",
-        "Game development",
-        "Digital marketing",
-        "Branding and design",
-        "Full build",
-        "White label for agencies",
+        "Web Development",
+        "ERP Systems",
+        "CRM Systems",
+        "App & Mobile Development",
+        "Integrations & Automations",
+        "Account Management",
+        "Content Creation",
+        "Paid Media",
+        "Digital Marketing Strategy",
+        "Branding & Design",
+        "White Label Partnership",
         "Not sure yet"
       ],
       "message": "Tell us about your business",
@@ -646,15 +649,15 @@
     }
   },
   "marquee": [
-    "Websites",
-    "Online stores",
-    "ERP and CRM",
+    "Web Development",
+    "ERP Systems",
+    "CRM Systems",
+    "Apps & Mobile",
     "Integrations",
-    "Custom software",
-    "Game development",
-    "Digital marketing",
-    "Branding",
-    "Hosting"
+    "Account Management",
+    "Content Creation",
+    "Paid Media",
+    "Branding"
   ],
   "process_step": "Step",
   "mock": {
@@ -675,6 +678,412 @@
     "updates": "Updates",
     "security": "Security",
     "agency": "Your agency",
-    "sent": "✓ report sent"
+    "sent": "✓ report sent",
+    "new": "New",
+    "proposal": "Proposal",
+    "won": "Won",
+    "order": "Order confirmed",
+    "payments": "Payments",
+    "crm": "CRM",
+    "replied": "Replied",
+    "awareness": "Awareness",
+    "interest": "Interest",
+    "decision": "Decision",
+    "action": "Action"
+  },
+  "categories": [
+    {
+      "id": "development",
+      "name": "Development",
+      "intro": "The systems, sites and apps your business runs on, built to last and to grow with you.",
+      "services": [
+        {
+          "id": "web-development",
+          "name": "Web Development",
+          "short": "Websites, online stores and web apps that load fast, work in Arabic and English, and turn visitors into customers.",
+          "long": "From a single landing page to a full web platform, we write the structure first, then design and build for speed, search and conversion. Every site ships with analytics, and a plan to keep it secure and up to date.",
+          "items": [
+            {
+              "name": "Company websites",
+              "text": "Clear, fast sites that explain what you do and bring in enquiries."
+            },
+            {
+              "name": "Landing pages",
+              "text": "One page, one goal, built for campaigns and launches."
+            },
+            {
+              "name": "E-commerce stores",
+              "text": "Salla, Odoo or custom stores, connected to your stock."
+            },
+            {
+              "name": "Web apps and portals",
+              "text": "Client portals, dashboards and booking systems."
+            },
+            {
+              "name": "Redesigns and speed",
+              "text": "Modernize an existing site and make it load in a blink."
+            },
+            {
+              "name": "Hosting and maintenance",
+              "text": "Secure hosting, backups, updates and monthly support."
+            }
+          ],
+          "fit": "Good fit if your site is old, slow, hard to update, or doesn't bring in business."
+        },
+        {
+          "id": "erp",
+          "name": "ERP Systems",
+          "short": "One system for sales, inventory, purchasing, accounting and POS, set up around how your business actually works.",
+          "long": "We implement Odoo end to end or extend the system you already have. We run Odoo Community with our own modules, so you get enterprise-level features without paying a license for every user.",
+          "items": [
+            {
+              "name": "ERP full solutions",
+              "text": "Process mapping, setup, data migration, training, go-live and support, delivered as one project."
+            },
+            {
+              "name": "Custom modules and tools",
+              "text": "Features built for your exact workflow: reports, approvals, barcode tools, connectors and dashboards."
+            }
+          ],
+          "fit": "Good fit if your stock, sales or accounts live in spreadsheets, or your current system fights you.",
+          "link": {
+            "href": "/odoo/",
+            "label": "How we implement Odoo"
+          }
+        },
+        {
+          "id": "crm",
+          "name": "CRM Systems",
+          "short": "Every lead, deal and customer conversation in one place, so nothing falls through the cracks.",
+          "long": "We set up a CRM that matches how your team sells: pipelines, follow-up reminders, quotations and reporting, connected to your website, WhatsApp and email so leads arrive on their own.",
+          "items": [
+            {
+              "name": "CRM full solutions",
+              "text": "Pipeline design, setup, lead capture, team training and sales reporting."
+            },
+            {
+              "name": "Custom modules and tools",
+              "text": "Lead scoring, automated follow-ups, commission rules and custom dashboards."
+            }
+          ],
+          "fit": "Good fit if your leads live in WhatsApp chats and notebooks, or you can't see what your sales team is doing."
+        },
+        {
+          "id": "apps",
+          "name": "App & Mobile Development",
+          "short": "Apps for your customers and your team, on iOS, Android and the web.",
+          "long": "We design and build apps around one job done well: ordering, booking, loyalty, field work or play. Native-feeling on phones, connected to your systems, and maintained after launch.",
+          "items": [
+            {
+              "name": "iOS and Android apps",
+              "text": "One codebase, both stores, a native feel."
+            },
+            {
+              "name": "Progressive web apps",
+              "text": "Installable apps that work offline, with no app store needed."
+            },
+            {
+              "name": "Ordering and kiosk apps",
+              "text": "Self-order screens and customer apps that talk to your POS."
+            },
+            {
+              "name": "Apps for your team",
+              "text": "Barcode scanning, field sales, inventory counts and approvals on the go."
+            },
+            {
+              "name": "Mobile and web games",
+              "text": "Casual games, Unity development and playable web demos."
+            },
+            {
+              "name": "App rescue",
+              "text": "Fix crashes, slow screens and lost data in apps you already have."
+            }
+          ],
+          "fit": "Good fit if your customers or staff need something better than a website on a small screen."
+        },
+        {
+          "id": "integrations",
+          "name": "Integrations & Automations",
+          "short": "Connect every tool you use and let the repetitive work run itself.",
+          "long": "Two systems that disagree cost you money every day. We connect them through APIs and webhooks, with scheduled jobs as a safety net, then automate the copy-paste, the reminders and the reports, whatever platform you're on.",
+          "items": [
+            {
+              "name": "System integrations",
+              "text": "Store, ERP, POS, accounting and CRM, in sync both ways."
+            },
+            {
+              "name": "Payment and shipping gateways",
+              "text": "Online payments, invoicing and delivery tracking, connected end to end."
+            },
+            {
+              "name": "APIs and webhooks",
+              "text": "Custom APIs that let your systems and partners talk securely."
+            },
+            {
+              "name": "WhatsApp and email automation",
+              "text": "Order updates, reminders and notifications sent automatically."
+            },
+            {
+              "name": "Workflow automation",
+              "text": "Approvals, alerts and scheduled reports that run on their own."
+            },
+            {
+              "name": "Data pipelines and scraping",
+              "text": "Collect, clean and monitor data, from competitor prices to market feeds."
+            },
+            {
+              "name": "AI assistants",
+              "text": "AI built into your systems to answer, summarize and draft."
+            }
+          ],
+          "fit": "Good fit if someone on your team copies data between systems, or your store and stock disagree."
+        }
+      ]
+    },
+    {
+      "id": "marketing",
+      "name": "Marketing",
+      "intro": "Strategy, content and media that turn attention into customers, measured every month.",
+      "services": [
+        {
+          "id": "account-management",
+          "name": "Account Management",
+          "short": "Your social accounts run every day: planned, posted, answered and reported.",
+          "long": "We take over the daily running of your accounts: the content calendar, publishing, replies to comments and messages, and a monthly report in plain language.",
+          "items": [
+            {
+              "name": "Content calendar",
+              "text": "A month planned ahead and approved by you."
+            },
+            {
+              "name": "Publishing and scheduling",
+              "text": "Every post out on time, on every platform."
+            },
+            {
+              "name": "Community management",
+              "text": "Comments and messages answered in your brand's voice."
+            },
+            {
+              "name": "Monthly reporting",
+              "text": "What worked, what didn't, and what changes next."
+            }
+          ],
+          "fit": "Good fit if your accounts are quiet, inconsistent, or managed by whoever has time."
+        },
+        {
+          "id": "content-creation",
+          "name": "Content Creation",
+          "short": "Posts, reels, videos and copy in Arabic and English that people stop to look at.",
+          "long": "We write, design and produce content built for each platform, from scroll-stopping reels to product shots and campaign copy, all in your brand's look and voice.",
+          "items": [
+            {
+              "name": "Social posts and carousels",
+              "text": "Designed for each platform's format."
+            },
+            {
+              "name": "Reels and short videos",
+              "text": "Scripted, edited and captioned."
+            },
+            {
+              "name": "Copywriting",
+              "text": "Arabic and English that sounds like you."
+            },
+            {
+              "name": "Photo and video direction",
+              "text": "Shoots planned around what the content needs."
+            }
+          ],
+          "fit": "Good fit if you know you should post more, but don't have the time or the team."
+        },
+        {
+          "id": "paid-media",
+          "name": "Paid Media",
+          "short": "Ads on Meta, Google, TikTok, Snapchat and LinkedIn, measured to the last pound.",
+          "long": "We plan the budget, build the audiences, write and design the ads, and optimize every week. Tracking is set up first, so every result can be traced back to its cost.",
+          "items": [
+            {
+              "name": "Campaign planning",
+              "text": "Goals, budgets and audiences before a single ad runs."
+            },
+            {
+              "name": "Ad creative",
+              "text": "Designs and copy tested against each other."
+            },
+            {
+              "name": "Tracking setup",
+              "text": "Pixels, conversions and analytics done properly."
+            },
+            {
+              "name": "Weekly optimization",
+              "text": "Budget moved to what's working, cut from what isn't."
+            }
+          ],
+          "fit": "Good fit if you spend on ads without knowing what they return."
+        },
+        {
+          "id": "strategy",
+          "name": "Digital Marketing Strategies & Consultation",
+          "short": "A clear plan for where to show up, what to say and how to measure it.",
+          "long": "We audit where you stand, study your market and competitors, then build a strategy and funnel your team can follow, with consultation sessions to keep it on track.",
+          "items": [
+            {
+              "name": "Marketing audit",
+              "text": "An honest look at your channels, content and results."
+            },
+            {
+              "name": "Strategy and funnel",
+              "text": "Who to reach, where, with what message, and in what order."
+            },
+            {
+              "name": "KPIs and reporting",
+              "text": "The few numbers that matter, tracked every month."
+            },
+            {
+              "name": "Consultation sessions",
+              "text": "Ongoing guidance for your in-house team."
+            }
+          ],
+          "fit": "Good fit if you're doing a lot of marketing without a clear plan behind it."
+        },
+        {
+          "id": "branding",
+          "name": "Branding & Designing",
+          "short": "Logos, identities and designs that make you look like the company you are.",
+          "long": "We build brands that hold together everywhere: logo, colors, type, guidelines and templates, plus the interface, print and social designs that carry them.",
+          "items": [
+            {
+              "name": "Logo and identity",
+              "text": "A mark and system built to last."
+            },
+            {
+              "name": "Brand guidelines",
+              "text": "Rules and files so it stays consistent."
+            },
+            {
+              "name": "Social and print design",
+              "text": "Templates, posts, flyers and stationery."
+            },
+            {
+              "name": "UI and UX design",
+              "text": "Interfaces for websites and apps."
+            }
+          ],
+          "fit": "Good fit if every document and post looks a little different."
+        }
+      ]
+    }
+  ],
+  "partner": {
+    "nav": "Partnership",
+    "name": "White Label Partnership",
+    "short": "We deliver websites, systems, apps and integrations under your name, at partner rates.",
+    "title": "White Label Partnership | Peaker",
+    "description": "Agencies and freelancers: offer websites, ERP, CRM, apps and integrations under your brand. Peaker builds, you deliver.",
+    "h1": "Your brand. Our engineering.",
+    "lead": "Offer websites, ERP, CRM, apps and integrations to your clients without hiring a single developer. We build behind the scenes, you keep the client and the credit.",
+    "cta": "Become a partner",
+    "for_title": "Built for",
+    "for": [
+      {
+        "name": "Marketing agencies",
+        "text": "Your clients ask for websites, stores and systems. Say yes."
+      },
+      {
+        "name": "Design studios",
+        "text": "You design it, we build it, pixel for pixel."
+      },
+      {
+        "name": "Freelancers and consultants",
+        "text": "Take on bigger projects with a full team behind you."
+      },
+      {
+        "name": "Software resellers",
+        "text": "Add implementation and custom development to what you sell."
+      }
+    ],
+    "models_title": "Three ways to partner",
+    "models": [
+      {
+        "name": "Project by project",
+        "text": "Send us a brief, get a partner quote, deliver under your brand.",
+        "points": [
+          "Partner pricing on every project",
+          "Fixed scope and timeline",
+          "No minimum commitment"
+        ]
+      },
+      {
+        "name": "Reserved capacity",
+        "text": "A set number of development hours every month, ready when your clients need them.",
+        "points": [
+          "Priority scheduling",
+          "Lower hourly rate",
+          "Hours roll over for one month"
+        ],
+        "featured": true,
+        "badge": "Most popular"
+      },
+      {
+        "name": "Referral partnership",
+        "text": "Prefer not to manage delivery? Introduce the client and earn a commission.",
+        "points": [
+          "Commission on every project",
+          "We handle delivery",
+          "Your client relationship stays yours"
+        ]
+      }
+    ],
+    "includes_title": "What every partnership includes",
+    "includes": [
+      {
+        "name": "Signed NDA",
+        "text": "Your clients and your work stay confidential."
+      },
+      {
+        "name": "Your brand everywhere",
+        "text": "Emails, documents, invoices and handover in your name."
+      },
+      {
+        "name": "No client contact",
+        "text": "Unless you ask us to join a call as part of your team."
+      },
+      {
+        "name": "Your tools",
+        "text": "We work inside your project management and chat tools."
+      },
+      {
+        "name": "Documentation",
+        "text": "Delivered under your brand, ready to hand over."
+      },
+      {
+        "name": "Support after launch",
+        "text": "We stay behind you when your client needs changes."
+      }
+    ],
+    "steps_title": "How it works",
+    "steps": [
+      {
+        "name": "Sign",
+        "text": "NDA and partner terms, once."
+      },
+      {
+        "name": "Brief",
+        "text": "Send the project; we ask the right questions."
+      },
+      {
+        "name": "Quote",
+        "text": "A partner price and timeline within two working days."
+      },
+      {
+        "name": "Build",
+        "text": "We build; you review and present to your client."
+      },
+      {
+        "name": "Support",
+        "text": "Changes and maintenance, still under your name."
+      }
+    ],
+    "what_title": "What you can offer your clients",
+    "what_text": "Everything in our development range, delivered under your brand."
   }
 }

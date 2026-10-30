@@ -54,17 +54,26 @@
       <h2 class="h2" id="services-title" data-reveal>{{ c.home.services_title }}</h2>
       <p class="lead" data-reveal data-d="1">{{ c.home.services_lead }}</p>
     </div>
-    <div class="bento">
-      {% for svc in c.services %}{% set b = bento.get(svc.id, {}) %}
-      <a class="tile {{ b.cls or '' }}" href="{{ prefix }}/services/#{{ svc.id }}" data-reveal data-d="{{ loop.index0 % 4 }}">
-        {% if b.img %}<span class="bg"><img src="/assets/img/work/{{ b.img }}" alt="" loading="lazy" decoding="async"></span><span class="ico">{{ ic[svc.id] | safe }}</span>
-        {% else %}<span class="mock" aria-hidden="true">{% include "mocks/" ~ svc.id ~ ".html" %}</span>{% endif %}
-        <span class="go">{{ ic.arrow | safe }}</span>
-        <span class="tile-text"><h3>{{ svc.name }}</h3><p>{{ svc.short }}</p></span>
-      </a>
-      {% endfor %}
+    {% for cat in c.categories %}
+    <div class="cat">
+      <div class="cat-head" data-reveal><h3><span class="cat-ico">{{ ic[cat.id] | safe }}</span>{{ cat.name }}</h3><p>{{ cat.intro }}</p></div>
+      <div class="bento">
+        {% for svc in cat.services %}{% set b = bento.get(svc.id, {}) %}
+        <a class="tile {{ b.cls or '' }}" href="{{ prefix }}/services/#{{ svc.id }}" data-reveal data-d="{{ loop.index0 % 4 }}">
+          {% if b.img %}<span class="bg"><img src="/assets/img/work/{{ b.img }}" alt="" loading="lazy" decoding="async"></span><span class="ico">{{ ic[svc.id] | safe }}</span>
+          {% else %}<span class="mock" aria-hidden="true">{% include "mocks/" ~ svc.id ~ ".html" %}</span>{% endif %}
+          <span class="go">{{ ic.arrow | safe }}</span>
+          <span class="tile-text"><h3>{{ svc.name }}</h3><p>{{ svc.short }}</p></span>
+        </a>
+        {% endfor %}
+      </div>
     </div>
-    <div class="bento-foot"><a class="text-link" href="{{ prefix }}/services/">{{ c.home.all_services }}</a></div>
+    {% endfor %}
+    <a class="partner-band" href="{{ prefix }}/partnership/" data-reveal>
+      <span class="pb-mock" aria-hidden="true">{% include "mocks/white-label.html" %}</span>
+      <span class="pb-text"><span class="kicker">{{ ic.handshake | safe }}{{ c.partner.name }}</span><b>{{ c.partner.h1 }}</b><span>{{ c.partner.short }}</span></span>
+      <span class="btn btn-primary">{{ c.partner.cta }}{{ ic.arrow | safe }}</span>
+    </a>
   </div>
 </section>
 

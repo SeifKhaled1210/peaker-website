@@ -43,13 +43,25 @@
         <div class="has-drop">
           <button class="drop-btn" type="button" aria-expanded="false" aria-controls="mega"{% if page == 'services' %} aria-current="page"{% endif %}>{{ c.nav.services }}<svg viewBox="0 0 12 8" aria-hidden="true"><path d="M1 1.5 6 6.5l5-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
           <div class="mega" id="mega">
-            <div class="mega-grid">
-              {% for svc in c.services %}<a href="{{ prefix }}/services/#{{ svc.id }}"><span class="mi">{{ ic[svc.id] | safe }}</span><span><b>{{ svc.name }}</b><small>{{ svc.short }}</small></span></a>{% endfor %}
+            <div class="mega-cols">
+              {% for cat in c.categories %}
+              <div class="mega-col">
+                <p class="mega-cat">{{ cat.name }}</p>
+                {% for svc in cat.services %}<a href="{{ prefix }}/services/#{{ svc.id }}"><span class="mi">{{ ic[svc.id] | safe }}</span><span><b>{{ svc.name }}</b></span></a>{% endfor %}
+              </div>
+              {% endfor %}
+              <a class="mega-partner" href="{{ prefix }}/partnership/">
+                <span class="mi big">{{ ic.handshake | safe }}</span>
+                <b>{{ c.partner.name }}</b>
+                <small>{{ c.partner.short }}</small>
+                <span class="text-link">{{ c.partner.cta }}</span>
+              </a>
             </div>
             <div class="mega-foot"><span>{{ c.nav.services_menu }}</span><a class="text-link" href="{{ prefix }}/services/">{{ c.nav.all_services }}</a></div>
           </div>
         </div>
         <a href="{{ prefix }}/work/"{% if page == 'work' %} aria-current="page"{% endif %}>{{ c.nav.work }}</a>
+        <a href="{{ prefix }}/partnership/"{% if page == 'partner' %} aria-current="page"{% endif %}>{{ c.nav.partner }}</a>
         <a href="{{ prefix }}/about/"{% if page == 'about' %} aria-current="page"{% endif %}>{{ c.nav.about }}</a>
         <a href="{{ prefix }}/contact/"{% if page == 'contact' %} aria-current="page"{% endif %}>{{ c.nav.contact }}</a>
       </nav>
@@ -93,6 +105,7 @@
         <ul>
           <li><a href="{{ prefix }}/services/">{{ c.nav.services }}</a></li>
           <li><a href="{{ prefix }}/work/">{{ c.nav.work }}</a></li>
+          <li><a href="{{ prefix }}/partnership/">{{ c.partner.name }}</a></li>
           <li><a href="{{ prefix }}/odoo/">{{ c.nav.odoo }}</a></li>
           <li><a href="{{ prefix }}/about/">{{ c.nav.about }}</a></li>
           <li><a href="{{ prefix }}/contact/">{{ c.nav.contact }}</a></li>

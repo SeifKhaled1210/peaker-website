@@ -18,8 +18,10 @@ VERSION = time.strftime("%Y%m%d%H%M")
 
 site = json.loads((SRC / "site.json").read_text(encoding="utf-8"))
 content = {l: json.loads((SRC / "content" / f"{l}.json").read_text(encoding="utf-8")) for l in ("en", "ar")}
+for _c in content.values():   # flat list of every service, used by forms and links
+    _c["services"] = [dict(s, cat=cat["id"]) for cat in _c["categories"] for s in cat["services"]]
 
-PAGES = {"home": "/", "services": "/services/", "work": "/work/", "odoo": "/odoo/", "about": "/about/", "contact": "/contact/"}
+PAGES = {"home": "/", "services": "/services/", "work": "/work/", "partner": "/partnership/", "odoo": "/odoo/", "about": "/about/", "contact": "/contact/"}
 
 # ---------------------------------------------------------------- graphics
 # The chevron base of the Peaker mark (100 x 80 grid, every angle 45 degrees).
@@ -35,17 +37,20 @@ def _i(d, sw="1.8"):
     return f'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="{sw}" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">{d}</svg>'
 
 ICONS = {
-    "websites": _i('<rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M6.5 6.5h.01M9 6.5h.01"/>'),
-    "online-stores": _i('<path d="M5 8h14l-1.2 12H6.2L5 8Z"/><path d="M9 8V6.5a3 3 0 0 1 6 0V8"/>'),
-    "erp": _i('<rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/>'),
-    "integrations": _i('<path d="M4 9h14l-3.5-3.5M20 15H6l3.5 3.5"/>'),
-    "custom-software": _i('<path d="m8 7-5 5 5 5M16 7l5 5-5 5M13.5 4l-3 16"/>'),
-    "games": _i('<path d="M7 8h10a4 4 0 0 1 4 4v1a3.5 3.5 0 0 1-6.3 2.1L14 14h-4l-.7 1.1A3.5 3.5 0 0 1 3 13v-1a4 4 0 0 1 4-4Z"/><path d="M8 10.5v3M6.5 12h3M15.5 11.5h.01M17.5 13h.01"/>'),
+    "development": _i('<path d="m8 7-5 5 5 5M16 7l5 5-5 5M13.5 4l-3 16"/>'),
     "marketing": _i('<path d="M3 10v4h4l7 4V6l-7 4H3Z"/><path d="M17.5 9a4 4 0 0 1 0 6"/>'),
-    "design": _i('<path d="m12 3 7 7-7 11-7-11 7-7Z"/><circle cx="12" cy="11" r="2"/>'),
-    "full-builds": _i('<path d="m12 3 9 5-9 5-9-5 9-5Z"/><path d="m3 13 9 5 9-5"/>'),
-    "care-plans": _i('<path d="M12 3 20 6v6c0 4.5-3.4 8.2-8 9-4.6-.8-8-4.5-8-9V6l8-3Z"/><path d="m8.5 12 2.5 2.5 4.5-5"/>'),
-    "white-label": _i('<path d="M3 12V4h8l10 10-8 8L3 12Z"/><circle cx="7.5" cy="7.5" r="1.5"/>'),
+    "web-development": _i('<rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M6.5 6.5h.01M9 6.5h.01"/>'),
+    "erp": _i('<rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/>'),
+    "crm": _i('<circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c.8-3.5 3.3-5.5 6.5-5.5s5.7 2 6.5 5.5"/><path d="M16 4.5a3.5 3.5 0 0 1 0 7M18.5 14.8c1.6.8 2.6 2.5 3 5.2"/>'),
+    "apps": _i('<rect x="6" y="2.5" width="12" height="19" rx="2.5"/><path d="M10.5 18.5h3"/>'),
+    "integrations": _i('<path d="M4 9h14l-3.5-3.5M20 15H6l3.5 3.5"/>'),
+    "account-management": _i('<path d="M4 5h16v11H8l-4 4V5Z"/><path d="M8 9.5h8M8 12.5h5"/>'),
+    "content-creation": _i('<rect x="3" y="5" width="18" height="14" rx="2"/><path d="m10 9.5 4.5 2.5-4.5 2.5v-5Z"/>'),
+    "paid-media": _i('<path d="M4 19V5M4 19h16"/><path d="m7 15 4-4 3 3 5-6"/>'),
+    "strategy": _i('<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5"/>'),
+    "branding": _i('<path d="m12 3 7 7-7 11-7-11 7-7Z"/><circle cx="12" cy="11" r="2"/>'),
+    "handshake": _i('<path d="m11 7-2.5-2.5L3 10l5 5"/><path d="m13 7 2.5-2.5L21 10l-7.5 7.5a1.8 1.8 0 0 1-2.5 0L8 14.5"/><path d="m11 7 3 3m-4.5 1.5 2.5 2.5m-4.5-.5 2 2"/>'),
+    "card": _i('<rect x="2.5" y="5" width="19" height="14" rx="2"/><path d="M2.5 10h19M6 15h4"/>'),
     "arrow": _i('<path d="M5 12h14M13 6l6 6-6 6"/>', "2.2").replace('<svg ', '<svg class="arrow" ', 1),
     "x": _i('<path d="M6 6l12 12M18 6 6 18"/>', "2.6"),
     "check": _i('<path d="m5 12.5 4.5 4.5L19 7.5"/>', "2.6"),
@@ -58,13 +63,14 @@ ICONS = {
 }
 
 BENTO = {
-    "websites": {"cls": "span-2 row-2 photo", "img": "lumen-analytics.webp"},
-    "online-stores": {"cls": "span-2"},
-    "custom-software": {"cls": "span-2"},
-    "games": {"cls": "span-2 photo", "img": "vault-runner-sm.webp"},
-    "marketing": {"cls": "span-2"},
-    "care-plans": {"cls": "span-2"},
-    "white-label": {"cls": "span-2"},
+    # development: big photo, two singles, wide, full-width
+    "web-development": {"cls": "span-2 row-2 photo", "img": "lumen-analytics.webp"},
+    "apps": {"cls": "span-2"},
+    "integrations": {"cls": "span-4 wide"},
+    # marketing: same rhythm
+    "paid-media": {"cls": "span-2 row-2"},
+    "strategy": {"cls": "span-2"},
+    "branding": {"cls": "span-4 wide"},
 }
 
 
@@ -158,7 +164,7 @@ def build(base="", preview=False):
                       work_items=with_counts(c["home"]["work_items"]), gc_results=with_counts(c["work_page"]["gc"]["results"]),
                       founder_name=site[f"founder_name_{lang}"], founder_bio=site[f"founder_bio_{lang}"],
                       founder_initials="".join(w[0] for w in site["founder_name_en"].split()[:2]) if site["founder_name_en"] else "")
-        meta_key = {"home": "home", "services": "services_page", "work": "work_page", "odoo": "odoo_page", "about": "about_page", "contact": "contact_page"}
+        meta_key = {"home": "home", "services": "services_page", "work": "work_page", "partner": "partner", "odoo": "odoo_page", "about": "about_page", "contact": "contact_page"}
         for page, url in PAGES.items():
             m = c[meta_key[page]]
             path = prefix + url

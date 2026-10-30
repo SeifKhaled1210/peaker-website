@@ -5,21 +5,36 @@
 <section class="section">
   <div class="wrap svc-layout">
     <nav class="toc" aria-label="{{ c.services_page.h1 }}">
-      <ol>{% for svc in c.services %}<li><a href="#{{ svc.id }}">{{ ic[svc.id] | safe }}<span>{{ svc.name }}</span></a></li>{% endfor %}</ol>
+      {% for cat in c.categories %}
+      <p class="toc-cat">{{ cat.name }}</p>
+      <ol>{% for svc in cat.services %}<li><a href="#{{ svc.id }}">{{ ic[svc.id] | safe }}<span>{{ svc.name }}</span></a></li>{% endfor %}</ol>
+      {% endfor %}
+      <p class="toc-cat">{{ c.partner.nav }}</p>
+      <ol><li><a href="{{ prefix }}/partnership/">{{ ic.handshake | safe }}<span>{{ c.partner.name }}</span></a></li></ol>
     </nav>
     <div>
-      {% for svc in c.services %}
-      <article class="svc" id="{{ svc.id }}" aria-labelledby="{{ svc.id }}-title" data-reveal>
-        <div class="svc-top"><span class="ico">{{ ic[svc.id] | safe }}</span><h2 id="{{ svc.id }}-title">{{ svc.name }}</h2></div>
-        <p class="short">{{ svc.short }}</p>
-        <p class="long">{{ svc.long }}</p>
-        <div class="svc-cols">
-          <div><h3>{{ c.services_page.includes }}</h3><ul class="checks">{% for i in svc.includes %}<li>{{ marker | safe }}<span>{{ i }}</span></li>{% endfor %}</ul></div>
+      {% for cat in c.categories %}
+      <div class="svc-cat" id="{{ cat.id }}">
+        <div class="svc-cat-head" data-reveal><span class="cat-ico">{{ ic[cat.id] | safe }}</span><div><h2>{{ cat.name }}</h2><p>{{ cat.intro }}</p></div></div>
+        {% for svc in cat.services %}
+        <article class="svc" id="{{ svc.id }}" aria-labelledby="{{ svc.id }}-title" data-reveal>
+          <div class="svc-top"><span class="ico">{{ ic[svc.id] | safe }}</span><h3 id="{{ svc.id }}-title">{{ svc.name }}</h3></div>
+          <p class="short">{{ svc.short }}</p>
+          <p class="long">{{ svc.long }}</p>
+          <h4 class="svc-sub">{{ c.services_page.includes }}</h4>
+          <ul class="sub-items{% if svc['items']|length == 2 %} two{% endif %}">
+            {% for it in svc['items'] %}<li>{{ marker | safe }}<div><b>{{ it.name }}</b><span>{{ it.text }}</span></div></li>{% endfor %}
+          </ul>
           <p class="fit">{{ svc.fit }}</p>
-        </div>
-        {% if svc.link %}<p class="svc-link"><a class="text-link" href="{{ prefix }}{{ svc.link.href }}">{{ svc.link.label }}</a></p>{% endif %}
-      </article>
+          {% if svc.link %}<p class="svc-link"><a class="text-link" href="{{ prefix }}{{ svc.link.href }}">{{ svc.link.label }}</a></p>{% endif %}
+        </article>
+        {% endfor %}
+      </div>
       {% endfor %}
+      <a class="partner-band slim" href="{{ prefix }}/partnership/" data-reveal>
+        <span class="pb-text"><span class="kicker">{{ ic.handshake | safe }}{{ c.partner.name }}</span><b>{{ c.partner.h1 }}</b><span>{{ c.partner.short }}</span></span>
+        <span class="btn btn-primary">{{ c.partner.cta }}{{ ic.arrow | safe }}</span>
+      </a>
     </div>
   </div>
 </section>
