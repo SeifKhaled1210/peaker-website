@@ -1,38 +1,30 @@
 {% extends "base.html" %}
 {% block main %}
-<section class="dark page-head" aria-labelledby="page-title">
-  {{ supergraphic | safe }}
-  <div class="wrap">
-    <h1 id="page-title">{{ c.odoo_page.h1 }}</h1>
-    <p class="lead">{{ c.odoo_page.lead }}</p>
-    <div class="hero-actions"><a class="btn btn-primary" href="{{ prefix }}/contact/">{{ c.nav.cta }}</a></div>
-  </div>
-</section>
+{% set head_title = c.odoo_page.h1 %}{% set head_lead = c.odoo_page.lead %}{% set head_cta = true %}
+{% include "_pagehead.html" %}
 <section class="section" aria-labelledby="apps-title">
   <div class="wrap">
-    <h2 class="h2" id="apps-title">{{ c.odoo_page.apps_title }}</h2>
-    <ul class="apps">{% for a in c.odoo_page.apps %}<li><h3>{{ a.name }}</h3><p>{{ a.text }}</p></li>{% endfor %}</ul>
+    <div class="section-head"><h2 class="h2" id="apps-title" data-reveal>{{ c.odoo_page.apps_title }}</h2></div>
+    <ul class="apps">{% for a in c.odoo_page.apps %}<li data-reveal data-d="{{ loop.index0 % 4 }}"><h3>{{ a.name }}</h3><p>{{ a.text }}</p></li>{% endfor %}</ul>
   </div>
 </section>
 <section class="section mist" aria-labelledby="modules-title">
   <div class="wrap two-col">
-    <div><h2 class="h2" id="modules-title">{{ c.odoo_page.modules_title }}</h2><p>{{ c.odoo_page.modules_text }}</p></div>
-    <div><h2 class="h2" id="hosting-title">{{ c.odoo_page.hosting_title }}</h2><p>{{ c.odoo_page.hosting_text }}</p></div>
+    <div data-reveal><h2 class="h2" id="modules-title">{{ c.odoo_page.modules_title }}</h2><p>{{ c.odoo_page.modules_text }}</p></div>
+    <div data-reveal data-d="1"><h2 class="h2" id="hosting-title">{{ c.odoo_page.hosting_title }}</h2><p>{{ c.odoo_page.hosting_text }}</p></div>
   </div>
 </section>
 <section class="section" aria-labelledby="phases-title">
   <div class="wrap">
-    <h2 class="h2" id="phases-title">{{ c.odoo_page.phases_title }}</h2>
-    <ol class="phases">{% for p in c.odoo_page.phases %}<li><h3>{{ p.name }}</h3><p>{{ p.text }}</p></li>{% endfor %}</ol>
-    <p class="note">{{ c.odoo_page.phases_note }}</p>
+    <div class="section-head"><h2 class="h2" id="phases-title" data-reveal>{{ c.odoo_page.phases_title }}</h2></div>
+    <ol class="phases">{% for p in c.odoo_page.phases %}<li data-reveal data-d="{{ loop.index0 % 4 }}"><h3>{{ p.name }}</h3><p>{{ p.text }}</p></li>{% endfor %}</ol>
+    <p class="note">{{ marker | safe }}{{ c.odoo_page.phases_note }}</p>
   </div>
 </section>
 <section class="section mist" aria-labelledby="faq-title">
   <div class="wrap">
-    <h2 class="h2" id="faq-title">{{ c.odoo_page.faq_title }}</h2>
-    <div class="faq">
-      {% for f in c.odoo_page.faq %}<details><summary>{{ f.q }}<span class="plus" aria-hidden="true"></span></summary><p>{{ f.a }}</p></details>{% endfor %}
-    </div>
+    <div class="section-head"><h2 class="h2" id="faq-title" data-reveal>{{ c.odoo_page.faq_title }}</h2></div>
+    <div class="faq">{% for f in c.odoo_page.faq %}<details><summary>{{ f.q }}<span class="plus" aria-hidden="true"></span></summary><p>{{ f.a }}</p></details>{% endfor %}</div>
   </div>
 </section>
 {% endblock %}

@@ -1,0 +1,8 @@
+<section class="dark dots page-head" aria-labelledby="page-title">
+  <svg class="climb-side" viewBox="0 0 400 380" aria-hidden="true">{{ climb_paths | safe }}</svg>
+  <div class="wrap">
+    <h1 id="page-title">{{ head_title }}</h1>
+    {% if head_lead %}<p class="lead">{{ head_lead }}</p>{% endif %}
+    {% if head_cta %}<div class="hero-actions"><a class="btn btn-primary" href="{{ prefix }}/contact/">{{ c.nav.cta }}{{ ic.arrow | safe }}</a></div>{% endif %}
+  </div>
+</section>

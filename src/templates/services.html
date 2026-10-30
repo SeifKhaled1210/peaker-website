@@ -1,29 +1,26 @@
 {% extends "base.html" %}
 {% block main %}
-<section class="dark page-head" aria-labelledby="page-title">
-  {{ supergraphic | safe }}
-  <div class="wrap">
-    <h1 id="page-title">{{ c.services_page.h1 }}</h1>
-    <p class="lead">{{ c.services_page.lead }}</p>
-  </div>
-</section>
+{% set head_title = c.services_page.h1 %}{% set head_lead = c.services_page.lead %}{% set head_cta = true %}
+{% include "_pagehead.html" %}
 <section class="section">
-  <div class="wrap">
-    {% for svc in c.services %}
-    <article class="svc" id="{{ svc.id }}" aria-labelledby="{{ svc.id }}-title">
-      <div>
-        <h2 id="{{ svc.id }}-title">{{ svc.name }}</h2>
+  <div class="wrap svc-layout">
+    <nav class="toc" aria-label="{{ c.services_page.h1 }}">
+      <ol>{% for svc in c.services %}<li><a href="#{{ svc.id }}">{{ ic[svc.id] | safe }}<span>{{ svc.name }}</span></a></li>{% endfor %}</ol>
+    </nav>
+    <div>
+      {% for svc in c.services %}
+      <article class="svc" id="{{ svc.id }}" aria-labelledby="{{ svc.id }}-title" data-reveal>
+        <div class="svc-top"><span class="ico">{{ ic[svc.id] | safe }}</span><h2 id="{{ svc.id }}-title">{{ svc.name }}</h2></div>
         <p class="short">{{ svc.short }}</p>
-      </div>
-      <div>
         <p class="long">{{ svc.long }}</p>
-        <h3>{{ c.services_page.includes }}</h3>
-        <ul class="checks">{% for i in svc.includes %}<li>{{ marker | safe }}<span>{{ i }}</span></li>{% endfor %}</ul>
-        <p class="fit">{{ svc.fit }}</p>
+        <div class="svc-cols">
+          <div><h3>{{ c.services_page.includes }}</h3><ul class="checks">{% for i in svc.includes %}<li>{{ marker | safe }}<span>{{ i }}</span></li>{% endfor %}</ul></div>
+          <p class="fit">{{ svc.fit }}</p>
+        </div>
         {% if svc.link %}<p class="svc-link"><a class="text-link" href="{{ prefix }}{{ svc.link.href }}">{{ svc.link.label }}</a></p>{% endif %}
-      </div>
-    </article>
-    {% endfor %}
+      </article>
+      {% endfor %}
+    </div>
   </div>
 </section>
 {% endblock %}

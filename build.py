@@ -31,6 +31,58 @@ ICON_MAIL = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-w
 ICON_PHONE = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2Z"/></svg>'
 
 
+def _i(d, sw="1.8"):
+    return f'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="{sw}" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">{d}</svg>'
+
+ICONS = {
+    "websites": _i('<rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M6.5 6.5h.01M9 6.5h.01"/>'),
+    "online-stores": _i('<path d="M5 8h14l-1.2 12H6.2L5 8Z"/><path d="M9 8V6.5a3 3 0 0 1 6 0V8"/>'),
+    "erp": _i('<rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/>'),
+    "integrations": _i('<path d="M4 9h14l-3.5-3.5M20 15H6l3.5 3.5"/>'),
+    "custom-software": _i('<path d="m8 7-5 5 5 5M16 7l5 5-5 5M13.5 4l-3 16"/>'),
+    "games": _i('<path d="M7 8h10a4 4 0 0 1 4 4v1a3.5 3.5 0 0 1-6.3 2.1L14 14h-4l-.7 1.1A3.5 3.5 0 0 1 3 13v-1a4 4 0 0 1 4-4Z"/><path d="M8 10.5v3M6.5 12h3M15.5 11.5h.01M17.5 13h.01"/>'),
+    "marketing": _i('<path d="M3 10v4h4l7 4V6l-7 4H3Z"/><path d="M17.5 9a4 4 0 0 1 0 6"/>'),
+    "design": _i('<path d="m12 3 7 7-7 11-7-11 7-7Z"/><circle cx="12" cy="11" r="2"/>'),
+    "full-builds": _i('<path d="m12 3 9 5-9 5-9-5 9-5Z"/><path d="m3 13 9 5 9-5"/>'),
+    "care-plans": _i('<path d="M12 3 20 6v6c0 4.5-3.4 8.2-8 9-4.6-.8-8-4.5-8-9V6l8-3Z"/><path d="m8.5 12 2.5 2.5 4.5-5"/>'),
+    "white-label": _i('<path d="M3 12V4h8l10 10-8 8L3 12Z"/><circle cx="7.5" cy="7.5" r="1.5"/>'),
+    "arrow": _i('<path d="M5 12h14M13 6l6 6-6 6"/>', "2.2").replace('<svg ', '<svg class="arrow" ', 1),
+    "x": _i('<path d="M6 6l12 12M18 6 6 18"/>', "2.6"),
+    "check": _i('<path d="m5 12.5 4.5 4.5L19 7.5"/>', "2.6"),
+    "bolt": _i('<path d="M13 2 4 14h7l-1 8 9-12h-7l1-8Z"/>', "2"),
+    "play": '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M7 4.5v15l13-7.5-13-7.5Z"/></svg>',
+    "chat": ICON_CHAT, "mail": ICON_MAIL, "phone": ICON_PHONE,
+}
+
+BENTO = {
+    "websites": {"cls": "span-2 row-2 photo", "img": "lumen-analytics.webp"},
+    "online-stores": {"cls": "span-2 photo", "img": "gc-store-sm.webp"},
+    "games": {"cls": "span-2 photo", "img": "vault-runner-sm.webp"},
+}
+
+
+def chevron(cx, a, half=170, t=40):
+    return (f'<path d="M{cx-half} {a+half} L{cx} {a} L{cx+half} {a+half} L{cx+half-t} {a+half} '
+            f'L{cx} {a+t} L{cx-half+t} {a+half} Z"/>')
+
+CLIMB = chevron(200, 200) + chevron(200, 130) + chevron(200, 60) + '<path class="peak" d="M200 0 L240 40 L160 40 Z"/>'
+
+AR_DIGITS = str.maketrans("٠١٢٣٤٥٦٧٨٩", "0123456789")
+
+def with_counts(items):
+    """Add count-up data to results like '30+' or '+٧٬٠٠٠'; others stay static."""
+    out = []
+    for r in items:
+        r = dict(r)
+        raw = r["num"].translate(AR_DIGITS)
+        m = re.fullmatch(r"([+]?)([0-9][0-9,٬]*)([+]?)", raw)
+        if m:
+            r["count"] = int(re.sub(r"[,٬]", "", m.group(2)))
+            r["pre"], r["suf"] = m.group(1), m.group(3)
+        out.append(r)
+    return out
+
+
 def stack_svg(c):
     """The hero graphic: four chevron layers rising to the orange peak."""
     rtl = c["dir"] == "rtl"
@@ -95,7 +147,10 @@ def build(base="", preview=False):
         prefix = "" if lang == "en" else "/ar"
         shared = dict(c=c, s=site, prefix=prefix, version=VERSION, supergraphic=SUPERGRAPHIC, marker=MARKER,
                       icon_chat=ICON_CHAT, icon_mail=ICON_MAIL, icon_phone=ICON_PHONE, stack=stack_svg(c), jsonld=jsonld(),
-                      founder_name=site[f"founder_name_{lang}"], founder_bio=site[f"founder_bio_{lang}"])
+                      ic=ICONS, bento=BENTO, climb_paths=CLIMB,
+                      work_items=with_counts(c["home"]["work_items"]), gc_results=with_counts(c["work_page"]["gc"]["results"]),
+                      founder_name=site[f"founder_name_{lang}"], founder_bio=site[f"founder_bio_{lang}"],
+                      founder_initials="".join(w[0] for w in site["founder_name_en"].split()[:2]) if site["founder_name_en"] else "")
         meta_key = {"home": "home", "services": "services_page", "work": "work_page", "odoo": "odoo_page", "about": "about_page", "contact": "contact_page"}
         for page, url in PAGES.items():
             m = c[meta_key[page]]
@@ -134,7 +189,7 @@ def build(base="", preview=False):
         "background_color": "#FFFFFF", "theme_color": "#0F1B3D",
         "icons": [{"src": f"{base}/icon-192.png", "sizes": "192x192", "type": "image/png"},
                   {"src": f"{base}/icon-512.png", "sizes": "512x512", "type": "image/png"}]}, indent=2), encoding="utf-8")
-    css = DIST / "assets" / "css" / "styles.css"
+    css = DIST / "assets" / "css" / "v2.css"
     css.write_text(rebase(css.read_text(encoding="utf-8"), base), encoding="utf-8")
     if preview:
         (DIST / "robots.txt").write_text("User-agent: *\nDisallow: /\n", encoding="utf-8")

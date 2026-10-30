@@ -1,15 +1,11 @@
 {% extends "base.html" %}
 {% block main %}
-<section class="dark page-head" aria-labelledby="page-title">
-  {{ supergraphic | safe }}
-  <div class="wrap">
-    <h1 id="page-title">{{ c.contact_page.h1 }}</h1>
-    <p class="lead">{{ c.contact_page.lead }}</p>
-  </div>
-</section>
+{% set head_title = c.contact_page.h1 %}{% set head_lead = c.contact_page.lead %}{% set head_cta = false %}
+{% include "_pagehead.html" %}
 <section class="section">
   <div class="wrap contact-grid">
     {% set f = c.contact_page.form %}
+    <div class="form-card">
     <form class="form" id="lead-form" action="/api/lead" method="post" novalidate
       data-sending="{{ f.sending }}" data-success="{{ f.success }}" data-error="{{ f.error }}" data-invalid="{{ f.invalid }}">
       <input type="hidden" name="lang" value="{{ c.lang }}">
@@ -23,15 +19,16 @@
       <div class="field full"><label for="message">{{ f.message }}</label><p class="hint" id="message-hint">{{ f.message_hint }}</p>
         <textarea id="message" name="message" required maxlength="4000" aria-describedby="message-hint"></textarea></div>
       <div class="status" id="form-status" role="status" aria-live="polite"></div>
-      <div class="form-foot"><button class="btn btn-dark" type="submit">{{ f.submit }}</button><small>{{ f.privacy }}</small></div>
+      <div class="form-foot"><button class="btn btn-primary" type="submit">{{ f.submit }}{{ ic.arrow | safe }}</button><small>{{ f.privacy }}</small></div>
     </form>
+    </div>
     <aside>
       <div class="aside-box">
         <h2>{{ c.contact_page.direct_title }}</h2>
         <div class="direct">
-          <a href="https://wa.me/{{ s.whatsapp }}" rel="noopener">{{ icon_chat | safe }}<span>{{ c.footer.whatsapp }}</span></a>
-          <a href="mailto:{{ s.email }}">{{ icon_mail | safe }}<span class="ltr">{{ s.email }}</span></a>
-          <a href="tel:{{ s.phone_link }}">{{ icon_phone | safe }}<span class="ltr">{{ s.phone_display }}</span></a>
+          <a href="https://wa.me/{{ s.whatsapp }}" rel="noopener"><span class="di">{{ ic.chat | safe }}</span><span>{{ c.footer.whatsapp }}</span></a>
+          <a href="mailto:{{ s.email }}"><span class="di">{{ ic.mail | safe }}</span><span class="ltr">{{ s.email }}</span></a>
+          <a href="tel:{{ s.phone_link }}"><span class="di">{{ ic.phone | safe }}</span><span class="ltr">{{ s.phone_display }}</span></a>
         </div>
       </div>
       <div class="aside-box">

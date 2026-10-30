@@ -2,9 +2,10 @@
 {% block main %}
 <section class="section notfound">
   <div class="wrap">
+    <p class="big404" aria-hidden="true">404</p>
     <h1 class="h2">{{ c.notfound.h1 }}</h1>
     <p class="lead nf-lead">{{ c.notfound.text }}</p>
-    <div class="hero-actions"><a class="btn btn-dark" href="{{ prefix }}/">{{ c.notfound.home }}</a></div>
+    <div class="hero-actions"><a class="btn btn-primary" href="{{ prefix }}/">{{ c.notfound.home }}{{ ic.arrow | safe }}</a></div>
   </div>
 </section>
 {% endblock %}

@@ -105,7 +105,36 @@
       }
     ],
     "work_games": "We also fix and build games: mobile titles for a French studio, in Unity and C#.",
-    "work_link": "See our work"
+    "work_link": "See our work",
+    "h1_full": "We build websites, online stores, ERP systems, integrations, custom software and games that work on Monday morning.",
+    "h1_start": "We build",
+    "h1_words": [
+      "websites",
+      "online stores",
+      "ERP systems",
+      "integrations",
+      "custom software",
+      "games"
+    ],
+    "h1_end": "that work on Monday morning.",
+    "trust_label": "Recent work for",
+    "trust": [
+      {
+        "name": "Golden Care",
+        "where": "Retail chain, Riyadh"
+      },
+      {
+        "name": "Old Skull Games",
+        "where": "Game studio, France"
+      }
+    ],
+    "chip1": "30+ custom ERP modules",
+    "chip2": "POS opens in seconds",
+    "scroll": "Scroll",
+    "game_title": "Take a break. Play something we built.",
+    "game_text": "Vault Runner is a small arcade game written in plain JavaScript. Collect coins, dodge the chasers, and see how far you get.",
+    "game_play": "Play Vault Runner",
+    "game_open": "Open full screen"
   },
   "services": [
     {
@@ -604,5 +633,17 @@
       "title": "Small business projects",
       "text": "Landing pages, store setups, small Python tools and urgent fixes for shop owners, creators, students and startups. Most came by referral, and most came back."
     }
-  }
+  },
+  "marquee": [
+    "Websites",
+    "Online stores",
+    "ERP and CRM",
+    "Integrations",
+    "Custom software",
+    "Game development",
+    "Digital marketing",
+    "Branding",
+    "Hosting"
+  ],
+  "process_step": "Step"
 }
