@@ -1,0 +1,120 @@
+{% extends "base.html" %}
+{% set w = c.work_page %}
+{% block main %}
+<section class="dark page-head" aria-labelledby="page-title">
+  {{ supergraphic | safe }}
+  <div class="wrap">
+    <h1 id="page-title">{{ w.h1 }}</h1>
+    <p class="lead">{{ w.lead }}</p>
+  </div>
+</section>
+
+{# ---------------- Golden Care ---------------- #}
+<section class="section case" id="golden-care" aria-labelledby="gc-title">
+  <div class="wrap">
+    <div class="case-head">
+      <div>
+        <p class="case-where">{{ w.gc.where }}</p>
+        <h2 class="h2" id="gc-title">{{ w.gc.client }}</h2>
+      </div>
+      <ul class="tags">{% for t in w.gc.tags %}<li>{{ t }}</li>{% endfor %}</ul>
+    </div>
+    <p class="lead case-summary">{{ w.gc.summary }}</p>
+    <h3 class="sr-only">{{ w.results_label }}</h3>
+    <ul class="results light">
+      {% for r in w.gc.results %}<li><strong>{{ r.num }}</strong><span>{{ r.text }}</span></li>{% endfor %}
+    </ul>
+    <div class="shots-lead">
+      {% for im in w.gc.images[:2] %}
+      <figure><img src="/assets/img/work/{{ im.src }}" alt="{{ im.alt }}" loading="lazy" decoding="async"><figcaption>{{ im.cap }}</figcaption></figure>
+      {% endfor %}
+    </div>
+    <ul class="highlights">
+      {% for h in w.gc.highlights %}<li><h3>{{ h.name }}</h3><p>{{ h.text }}</p></li>{% endfor %}
+    </ul>
+    <div class="shots">
+      {% for im in w.gc.images[2:] %}
+      <figure><img src="/assets/img/work/{{ im.src }}" alt="{{ im.alt }}" loading="lazy" decoding="async"><figcaption>{{ im.cap }}</figcaption></figure>
+      {% endfor %}
+    </div>
+    <p class="case-link"><a class="btn btn-dark" href="https://goldencaresa.net/" rel="noopener">{{ w.visit }}</a></p>
+  </div>
+</section>
+
+{# ---------------- Old Skull Games ---------------- #}
+<section class="section dark case case-games" id="old-skull-games" aria-labelledby="osg-title">
+  {{ supergraphic | safe }}
+  <div class="wrap">
+    <div class="case-head">
+      <div>
+        <p class="case-where">{{ w.osg.where }}</p>
+        <h2 class="h2" id="osg-title">{{ w.osg.client }}</h2>
+      </div>
+      <ul class="tags">{% for t in w.osg.tags %}<li>{{ t }}</li>{% endfor %}</ul>
+    </div>
+    <p class="lead case-summary">{{ w.osg.summary }}</p>
+    <div class="games-intro">
+      <p class="pull">{{ w.osg.intro }}</p>
+      <div>
+        <h3>{{ w.osg.approach_title }}</h3>
+        <ol class="approach">{% for a in w.osg.approach %}<li>{{ a }}</li>{% endfor %}</ol>
+      </div>
+    </div>
+    <h3 class="fixes-title">{{ w.osg.fixes_title }}</h3>
+    <div class="fixes">
+      {% for f in w.osg.fixes %}
+      <article class="fix">
+        <h4>{{ f.name }}</h4>
+        <p class="fix-label">{{ w.osg.problem }}</p><p>{{ f.problem }}</p>
+        <p class="fix-label ok">{{ w.osg.fix }}</p><p>{{ f.fix }}</p>
+      </article>
+      {% endfor %}
+    </div>
+    <figure class="code">
+      <figcaption>{{ w.osg.code_title }}</figcaption>
+<pre dir="ltr"><code><span class="c">// SaveSystem.cs</span>
+void Write(string json) {
+<span class="del">-   File.WriteAllText(SavePath, json);</span>
+<span class="add">+   var tmp = SavePath + ".tmp";</span>
+<span class="add">+   File.WriteAllText(tmp, json);</span>
+<span class="add">+   if (File.Exists(SavePath)) File.Copy(SavePath, SavePath + ".bak", true);</span>
+<span class="add">+   File.Replace(tmp, SavePath, null);   // one atomic step</span>
+}</code></pre>
+      <p class="code-note">{{ w.osg.code_note }}</p>
+    </figure>
+    <div class="vault">
+      <a class="vault-img" href="/work/demos/vault-runner.html"><img src="/assets/img/work/vault-runner.jpg" alt="Vault Runner arcade game" loading="lazy" decoding="async"></a>
+      <div>
+        <h3>{{ w.osg.vault_title }}</h3>
+        <p>{{ w.osg.vault_text }}</p>
+        <a class="btn btn-primary" href="/work/demos/vault-runner.html">{{ w.play }}</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+{# ---------------- Landing pages ---------------- #}
+<section class="section" id="landing-pages" aria-labelledby="lp-title">
+  <div class="wrap">
+    <h2 class="h2" id="lp-title">{{ w.lp.title }}</h2>
+    <p class="lead lp-lead">{{ w.lp.text }}</p>
+    <ul class="lp-grid">
+      {% for it in w.lp['items'] %}
+      <li><a href="/work/{{ it.href }}">
+        <img src="/assets/img/work/{{ it.img }}" alt="{{ it.name }}: {{ it.type }}" loading="lazy" decoding="async">
+        <span class="lp-name">{{ it.name }}</span><span class="lp-type">{{ it.type }}</span>
+        <span class="lp-open">{{ w.open_demo }}</span>
+      </a></li>
+      {% endfor %}
+    </ul>
+  </div>
+</section>
+
+{# ---------------- Small business ---------------- #}
+<section class="section mist" id="small-business" aria-labelledby="sb-title">
+  <div class="wrap two-col sb">
+    <h2 class="h2" id="sb-title">{{ w.sb.title }}</h2>
+    <p>{{ w.sb.text }}</p>
+  </div>
+</section>
+{% endblock %}

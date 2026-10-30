@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block main %}
+<section class="dark page-head" aria-labelledby="page-title">
+  {{ supergraphic | safe }}
+  <div class="wrap">
+    <h1 id="page-title">{{ c.services_page.h1 }}</h1>
+    <p class="lead">{{ c.services_page.lead }}</p>
+  </div>
+</section>
+<section class="section">
+  <div class="wrap">
+    {% for svc in c.services %}
+    <article class="svc" id="{{ svc.id }}" aria-labelledby="{{ svc.id }}-title">
+      <div>
+        <h2 id="{{ svc.id }}-title">{{ svc.name }}</h2>
+        <p class="short">{{ svc.short }}</p>
+      </div>
+      <div>
+        <p class="long">{{ svc.long }}</p>
+        <h3>{{ c.services_page.includes }}</h3>
+        <ul class="checks">{% for i in svc.includes %}<li>{{ marker | safe }}<span>{{ i }}</span></li>{% endfor %}</ul>
+        <p class="fit">{{ svc.fit }}</p>
+        {% if svc.link %}<p class="svc-link"><a class="text-link" href="{{ prefix }}{{ svc.link.href }}">{{ svc.link.label }}</a></p>{% endif %}
+      </div>
+    </article>
+    {% endfor %}
+  </div>
+</section>
+{% endblock %}

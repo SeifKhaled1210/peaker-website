@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Lumen — Product analytics for small teams</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0B1020;--bg2:#111834;--ink:#EEF1FF;--muted:#9AA4C7;--line:#233054;--acc:#7C8CFF;--acc2:#3DDCB4}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,sans-serif;line-height:1.55}
+a{color:inherit;text-decoration:none}.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+h1,h2,h3{font-family:'Space Grotesk',sans-serif;margin:0;letter-spacing:-.02em}
+nav{display:flex;align-items:center;justify-content:space-between;height:68px}
+.logo{font-family:'Space Grotesk';font-weight:700;font-size:20px;display:flex;align-items:center;gap:8px}
+.logo i{width:22px;height:22px;border-radius:6px;background:linear-gradient(135deg,var(--acc),var(--acc2));display:inline-block}
+nav ul{display:flex;gap:26px;list-style:none;margin:0;padding:0;font-size:14.5px;color:var(--muted)}
+.btn{display:inline-block;padding:11px 18px;border-radius:10px;font-weight:600;font-size:14.5px}
+.btn.p{background:var(--acc);color:#fff}.btn.g{border:1px solid var(--line)}
+.hero{padding:88px 0 60px;text-align:center}
+.pill{display:inline-block;font-size:12.5px;padding:5px 12px;border:1px solid var(--line);border-radius:999px;color:var(--acc2);margin-bottom:22px}
+.hero h1{font-size:clamp(38px,6vw,68px);line-height:1.02;max-width:16ch;margin:0 auto}
+.hero h1 span{background:linear-gradient(90deg,var(--acc),var(--acc2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p{color:var(--muted);font-size:18px;max-width:52ch;margin:22px auto 0}
+.cta{display:flex;gap:12px;justify-content:center;margin-top:30px}
+.dash{margin:56px auto 0;max-width:920px;background:var(--bg2);border:1px solid var(--line);border-radius:16px;padding:20px;box-shadow:0 40px 80px -40px #000}
+.dash .row{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:14px}
+.kpi{background:#0E1530;border:1px solid var(--line);border-radius:10px;padding:14px;text-align:left}
+.kpi small{color:var(--muted);font-size:12px}.kpi b{display:block;font-family:'Space Grotesk';font-size:24px;margin-top:4px}
+.kpi em{font-style:normal;font-size:12px;color:var(--acc2)}
+.chart{height:180px;display:flex;align-items:flex-end;gap:6px;padding:10px;border:1px solid var(--line);border-radius:10px;background:#0E1530}
+.chart i{flex:1;background:linear-gradient(180deg,var(--acc),#3a47a8);border-radius:4px 4px 0 0;opacity:.85}
+.feat{padding:80px 0;display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.f{border:1px solid var(--line);border-radius:14px;padding:26px;background:var(--bg2)}
+.f b{display:block;width:34px;height:34px;border-radius:9px;background:rgba(124,140,255,.15);color:var(--acc);text-align:center;line-height:34px;margin-bottom:16px;font-family:'Space Grotesk'}
+.f h3{font-size:18px;margin-bottom:8px}.f p{color:var(--muted);font-size:15px;margin:0}
+.quote{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:56px 0;text-align:center}
+.quote p{font-family:'Space Grotesk';font-size:26px;max-width:32ch;margin:0 auto}
+.quote small{display:block;margin-top:16px;color:var(--muted)}
+.price{padding:80px 0;text-align:center}.price h2{font-size:40px}
+.tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:36px;text-align:left}
+.t{border:1px solid var(--line);border-radius:14px;padding:26px;background:var(--bg2)}
+.t.hi{border-color:var(--acc);box-shadow:0 0 0 4px rgba(124,140,255,.12)}
+.t h3{font-size:16px;color:var(--muted)}.t .n{font-family:'Space Grotesk';font-size:40px;margin:8px 0 16px}.t .n small{font-size:14px;color:var(--muted)}
+.t ul{padding-left:18px;color:var(--muted);font-size:14.5px;margin:0 0 20px}
+footer{padding:36px 0;border-top:1px solid var(--line);color:var(--muted);font-size:13px;display:flex;justify-content:space-between}
+@media(max-width:800px){.feat,.tiers,.dash .row{grid-template-columns:1fr}nav ul{display:none}.dash .row{grid-template-columns:1fr 1fr}}
+</style></head>
+<body>
+<div class="wrap">
+<nav><div class="logo"><i></i>Lumen</div><ul><li>Product</li><li>Pricing</li><li>Docs</li><li>Changelog</li></ul><a class="btn g" href="#">Sign in</a></nav>
+<section class="hero">
+  <span class="pill">Now with funnel replay</span>
+  <h1>See what your users <span>actually do</span>, not what they say.</h1>
+  <p>Lumen turns raw product events into answers: where people drop off, which features keep them, and what changed after your last release.</p>
+  <div class="cta"><a class="btn p" href="#">Start free — no card</a><a class="btn g" href="#">Watch a 2-min demo</a></div>
+  <div class="dash">
+    <div class="row">
+      <div class="kpi"><small>Weekly active</small><b>12,480</b><em>▲ 8.2% vs last week</em></div>
+      <div class="kpi"><small>Activation rate</small><b>41%</b><em>▲ 3.1 pts</em></div>
+      <div class="kpi"><small>Day-30 retention</small><b>27%</b><em>▲ 1.4 pts</em></div>
+      <div class="kpi"><small>Events / day</small><b>2.1M</b><em>stable</em></div>
+    </div>
+    <div class="chart"><i style="height:35%"></i><i style="height:42%"></i><i style="height:38%"></i><i style="height:55%"></i><i style="height:50%"></i><i style="height:63%"></i><i style="height:58%"></i><i style="height:71%"></i><i style="height:66%"></i><i style="height:80%"></i><i style="height:76%"></i><i style="height:92%"></i></div>
+  </div>
+</section>
+<section class="feat">
+  <div class="f"><b>⌁</b><h3>Funnels that explain themselves</h3><p>Click any drop-off step and Lumen shows the sessions behind it — device, plan, and the last three things they tried.</p></div>
+  <div class="f"><b>◍</b><h3>Release impact, automatically</h3><p>Tag a deploy and every metric gets a before/after. No more arguing in Slack about whether the redesign helped.</p></div>
+  <div class="f"><b>⟁</b><h3>Your warehouse, your data</h3><p>Events sync to Postgres, BigQuery or Snowflake nightly. Query them with SQL whenever the dashboard isn't enough.</p></div>
+</section>
+<section class="quote"><p>"We found a checkout bug that had been costing us 6% of orders for four months. Lumen paid for itself in a week."</p><small>Head of Product, mid-size e-commerce team</small></section>
+<section class="price"><h2>Simple pricing</h2>
+  <div class="tiers">
+    <div class="t"><h3>Starter</h3><div class="n">$0<small>/mo</small></div><ul><li>Up to 100k events</li><li>2 seats</li><li>30-day history</li></ul><a class="btn g" href="#">Get started</a></div>
+    <div class="t hi"><h3>Growth</h3><div class="n">$79<small>/mo</small></div><ul><li>Up to 5M events</li><li>Unlimited seats</li><li>Funnel replay</li><li>Warehouse sync</li></ul><a class="btn p" href="#">Start 14-day trial</a></div>
+    <div class="t"><h3>Scale</h3><div class="n">Custom</div><ul><li>Unlimited events</li><li>SSO &amp; audit log</li><li>Dedicated support</li></ul><a class="btn g" href="#">Talk to us</a></div>
+  </div>
+</section>
+<footer><span>© Lumen Analytics — demo concept</span><span>Privacy · Terms · Status</span></footer>
+</div>
+</body></html>

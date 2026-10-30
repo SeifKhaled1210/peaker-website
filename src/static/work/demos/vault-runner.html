@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Vault Runner — canvas game demo</title>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+html,body{margin:0;height:100%;background:#0D1117;color:#E6EDF3;font-family:'JetBrains Mono',monospace;overflow:hidden}
+#wrap{position:relative;width:100%;height:100%;display:flex;align-items:center;justify-content:center}
+canvas{background:#0D1117;width:100%;height:100%;display:block;touch-action:none}
+#hud{position:absolute;top:12px;left:14px;font-size:13px;display:flex;gap:18px;pointer-events:none}
+#hud b{color:#F5C542}
+#ov{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;background:rgba(13,17,23,.78);text-align:center;padding:20px}
+#ov h1{margin:0 0 8px;font-size:26px;letter-spacing:.06em;color:#F5C542}
+#ov p{margin:0 0 18px;font-size:13px;color:#9DA7B3;max-width:38ch;line-height:1.6}
+#ov button{font:inherit;font-weight:700;background:#F5C542;color:#0D1117;border:0;padding:12px 22px;border-radius:8px;cursor:pointer}
+#ov button:hover{background:#FFD966}
+.hide{display:none!important}
+</style></head>
+<body>
+<div id="wrap">
+<canvas id="c" width="800" height="450"></canvas>
+<div id="hud">SCORE <b id="s">0</b> &nbsp; BEST <b id="b">0</b> &nbsp; SPEED <b id="v">1.0x</b></div>
+<div id="ov"><h1>VAULT RUNNER</h1><p>Grab the coins, dodge the drones. Arrow keys / WASD, or drag on touch. Speed ramps every 10 coins.</p><button id="go">Play</button></div>
+</div>
+<script>
+(()=>{
+const c=document.getElementById('c'),x=c.getContext('2d');
+const W=c.width,H=c.height;
+const S=document.getElementById('s'),B=document.getElementById('b'),V=document.getElementById('v');
+const ov=document.getElementById('ov'),go=document.getElementById('go');
+let best=0,st=null,keys={},touch=null,raf=0,last=0;
+
+function reset(){
+  st={p:{x:W/2,y:H/2,r:12,vx:0,vy:0},coins:[],drones:[],score:0,speed:1,t:0,dead:false,parts:[]};
+  for(let i=0;i<4;i++)spawnCoin();for(let i=0;i<2;i++)spawnDrone();
+}
+function rnd(a,b){return a+Math.random()*(b-a)}
+function spawnCoin(){st.coins.push({x:rnd(30,W-30),y:rnd(30,H-30),r:8,ph:Math.random()*6})}
+function spawnDrone(){
+  // spawn on an edge, never on top of the player
+  const side=Math.floor(rnd(0,4));let x0,y0;
+  if(side===0){x0=-20;y0=rnd(0,H)}else if(side===1){x0=W+20;y0=rnd(0,H)}else if(side===2){x0=rnd(0,W);y0=-20}else{x0=rnd(0,W);y0=H+20}
+  const a=Math.atan2(st.p.y-y0,st.p.x-x0)+rnd(-.4,.4),sp=rnd(70,110);
+  st.drones.push({x:x0,y:y0,vx:Math.cos(a)*sp,vy:Math.sin(a)*sp,r:11,rot:0});
+}
+function burst(px,py,col,n){for(let i=0;i<n;i++){const a=rnd(0,6.28),s=rnd(40,160);st.parts.push({x:px,y:py,vx:Math.cos(a)*s,vy:Math.sin(a)*s,l:rnd(.3,.7),col})}}
+
+function step(dt){
+  const p=st.p,acc=900,fr=.88,mx=260*st.speed;
+  let ax=0,ay=0;
+  if(keys.ArrowLeft||keys.a)ax-=1;if(keys.ArrowRight||keys.d)ax+=1;
+  if(keys.ArrowUp||keys.w)ay-=1;if(keys.ArrowDown||keys.s)ay+=1;
+  if(touch){const dx=touch.x-p.x,dy=touch.y-p.y,d=Math.hypot(dx,dy);if(d>6){ax=dx/d;ay=dy/d}}
+  p.vx=(p.vx+ax*acc*dt)*fr;p.vy=(p.vy+ay*acc*dt)*fr;
+  const sp=Math.hypot(p.vx,p.vy);if(sp>mx){p.vx*=mx/sp;p.vy*=mx/sp}
+  p.x=Math.max(p.r,Math.min(W-p.r,p.x+p.vx*dt));p.y=Math.max(p.r,Math.min(H-p.r,p.y+p.vy*dt));
+  st.t+=dt;
+  // coins
+  for(let i=st.coins.length-1;i>=0;i--){const k=st.coins[i];k.ph+=dt*4;
+    if(Math.hypot(k.x-p.x,k.y-p.y)<k.r+p.r){st.coins.splice(i,1);st.score++;burst(k.x,k.y,'#F5C542',10);spawnCoin();
+      if(st.score%10===0){st.speed=+(st.speed+.15).toFixed(2);spawnDrone()}}}
+  // drones bounce off walls, drift toward player slowly
+  for(const d of st.drones){
+    const tx=p.x-d.x,ty=p.y-d.y,td=Math.hypot(tx,ty)||1;
+    d.vx+=tx/td*18*dt*st.speed;d.vy+=ty/td*18*dt*st.speed;
+    const ds=Math.hypot(d.vx,d.vy),cap=120*st.speed;if(ds>cap){d.vx*=cap/ds;d.vy*=cap/ds}
+    d.x+=d.vx*dt;d.y+=d.vy*dt;d.rot+=dt*3;
+    if(d.x<d.r||d.x>W-d.r)d.vx*=-1;if(d.y<d.r||d.y>H-d.r)d.vy*=-1;
+    d.x=Math.max(d.r,Math.min(W-d.r,d.x));d.y=Math.max(d.r,Math.min(H-d.r,d.y));
+    if(!st.dead&&Math.hypot(d.x-p.x,d.y-p.y)<d.r+p.r-3){st.dead=true;burst(p.x,p.y,'#FF6B6B',30)}
+  }
+  for(let i=st.parts.length-1;i>=0;i--){const q=st.parts[i];q.l-=dt;q.x+=q.vx*dt;q.y+=q.vy*dt;q.vx*=.96;q.vy*=.96;if(q.l<=0)st.parts.splice(i,1)}
+}
+
+function draw(){
+  x.clearRect(0,0,W,H);
+  // grid
+  x.strokeStyle='rgba(255,255,255,.04)';x.lineWidth=1;
+  for(let i=0;i<W;i+=40){x.beginPath();x.moveTo(i,0);x.lineTo(i,H);x.stroke()}
+  for(let j=0;j<H;j+=40){x.beginPath();x.moveTo(0,j);x.lineTo(W,j);x.stroke()}
+  // coins
+  for(const k of st.coins){const s=1+Math.sin(k.ph)*.15;x.save();x.translate(k.x,k.y);x.scale(s,1);
+    x.fillStyle='#F5C542';x.beginPath();x.arc(0,0,k.r,0,6.28);x.fill();x.fillStyle='#B98D1F';x.beginPath();x.arc(0,0,k.r*.55,0,6.28);x.fill();x.restore()}
+  // drones
+  for(const d of st.drones){x.save();x.translate(d.x,d.y);x.rotate(d.rot);x.fillStyle='#FF6B6B';
+    x.beginPath();for(let i=0;i<3;i++){const a=i*2.094;x.lineTo(Math.cos(a)*d.r,Math.sin(a)*d.r)}x.closePath();x.fill();
+    x.fillStyle='#0D1117';x.beginPath();x.arc(0,0,3,0,6.28);x.fill();x.restore()}
+  // particles
+  for(const q of st.parts){x.globalAlpha=Math.max(0,q.l*1.6);x.fillStyle=q.col;x.fillRect(q.x-2,q.y-2,4,4)}x.globalAlpha=1;
+  // player
+  if(!st.dead){const p=st.p;x.save();x.translate(p.x,p.y);x.shadowColor='#5EEAD4';x.shadowBlur=18;
+    x.fillStyle='#5EEAD4';x.beginPath();x.arc(0,0,p.r,0,6.28);x.fill();x.shadowBlur=0;
+    x.fillStyle='#0D1117';x.beginPath();x.arc(4*Math.sign(p.vx||1),-2,3,0,6.28);x.fill();x.restore()}
+  S.textContent=st.score;V.textContent=st.speed.toFixed(2)+'x';
+}
+function loop(ts){
+  const dt=Math.min(.033,(ts-last)/1000||0);last=ts;
+  step(dt);draw();
+  if(st.dead){best=Math.max(best,st.score);B.textContent=best;
+    ov.querySelector('h1').textContent='CAUGHT';ov.querySelector('p').innerHTML=`You banked <b style="color:#F5C542">${st.score}</b> coins at ${st.speed.toFixed(2)}x speed.`;go.textContent='Run again';
+    setTimeout(()=>ov.classList.remove('hide'),400);return}
+  raf=requestAnimationFrame(loop);
+}
+go.onclick=()=>{reset();ov.classList.add('hide');last=performance.now();cancelAnimationFrame(raf);raf=requestAnimationFrame(loop);c.focus()};
+addEventListener('keydown',e=>{keys[e.key]=true;if(['ArrowUp','ArrowDown','ArrowLeft','ArrowRight',' '].includes(e.key))e.preventDefault()});
+addEventListener('keyup',e=>{keys[e.key]=false});
+function pt(e){const r=c.getBoundingClientRect(),t=e.touches?e.touches[0]:e;return{x:(t.clientX-r.left)*W/r.width,y:(t.clientY-r.top)*H/r.height}}
+c.addEventListener('pointerdown',e=>{touch=pt(e)});c.addEventListener('pointermove',e=>{if(touch)touch=pt(e)});
+addEventListener('pointerup',()=>{touch=null});
+reset();draw();
+})();
+</script>
+</body></html>

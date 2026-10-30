@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="{{ c.lang }}" dir="{{ c.dir }}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ meta.title }}</title>
+<meta name="description" content="{{ meta.description }}">
+<link rel="canonical" href="{{ s.domain }}{{ path }}">
+<link rel="alternate" hreflang="en" href="{{ s.domain }}{{ en_path }}">
+<link rel="alternate" hreflang="ar" href="{{ s.domain }}{{ ar_path }}">
+<link rel="alternate" hreflang="x-default" href="{{ s.domain }}{{ en_path }}">
+<meta name="theme-color" content="#0F1B3D">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="{{ 'Peaker' if c.lang == 'en' else 'بيكر' }}">
+<meta property="og:title" content="{{ meta.title }}">
+<meta property="og:description" content="{{ meta.description }}">
+<meta property="og:url" content="{{ s.domain }}{{ path }}">
+<meta property="og:image" content="{{ s.domain }}/assets/img/og-{{ c.lang }}.png">
+<meta property="og:locale" content="{{ 'en_US' if c.lang == 'en' else 'ar_EG' }}">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="preload" href="/assets/fonts/{{ 'manrope' if c.lang == 'en' else 'cairo' }}-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/css/styles.css?v={{ version }}">
+{% if page == 'home' %}<script type="application/ld+json">{{ jsonld | safe }}</script>{% endif %}
+</head>
+<body>
+<a class="skip" href="#main">{{ c.skip }}</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="{{ prefix }}/" aria-label="{{ c.logo_alt }}"><img src="/assets/img/logo-{{ c.lang }}.svg" alt="" width="{{ 153 if c.lang == 'en' else 100 }}" height="34"></a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="nav-panel" data-open="{{ c.nav.menu }}" data-close="{{ c.nav.close }}">
+      <span class="sr-only">{{ c.nav.menu }}</span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" aria-hidden="true"><path d="M3 7h18M3 12h18M3 17h18"/></svg>
+    </button>
+    <div class="nav-panel" id="nav-panel">
+      <nav class="nav" aria-label="{{ 'Main' if c.lang == 'en' else 'القائمة الرئيسية' }}">
+        <a href="{{ prefix }}/services/"{% if page == 'services' %} aria-current="page"{% endif %}>{{ c.nav.services }}</a>
+        <a href="{{ prefix }}/work/"{% if page == 'work' %} aria-current="page"{% endif %}>{{ c.nav.work }}</a>
+        <a href="{{ prefix }}/about/"{% if page == 'about' %} aria-current="page"{% endif %}>{{ c.nav.about }}</a>
+        <a href="{{ prefix }}/contact/"{% if page == 'contact' %} aria-current="page"{% endif %}>{{ c.nav.contact }}</a>
+      </nav>
+      <div class="nav-tools">
+        <a class="lang" href="{{ alt_path }}" lang="{{ 'ar' if c.lang == 'en' else 'en' }}" hreflang="{{ 'ar' if c.lang == 'en' else 'en' }}">{{ c.switch_label }}</a>
+        <a class="btn btn-primary header-cta" href="{{ prefix }}/contact/">{{ c.nav.cta }}</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+{% block main %}{% endblock %}
+</main>
+
+{% if page not in ('contact', '404') %}
+<section class="section dark cta-block" aria-labelledby="cta-title">
+  {{ supergraphic | safe }}
+  <div class="wrap">
+    <h2 class="h2" id="cta-title">{{ c.cta_block.title }}</h2>
+    <p class="lead">{{ c.cta_block.text }}</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="{{ prefix }}/contact/">{{ c.cta_block.primary }}</a>
+      <a class="btn btn-ghost" href="https://wa.me/{{ s.whatsapp }}" rel="noopener">{{ icon_chat | safe }}{{ c.cta_block.whatsapp }}</a>
+    </div>
+  </div>
+</section>
+{% endif %}
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <img src="/assets/img/logo-{{ c.lang }}-reversed.svg" alt="{{ 'Peaker' if c.lang == 'en' else 'بيكر' }}" width="{{ 162 if c.lang == 'en' else 106 }}" height="36">
+        <p class="about">{{ c.footer.about }}</p>
+        <p class="tag">{{ c.tagline }}</p>
+      </div>
+      <div>
+        <h2>{{ c.footer.pages }}</h2>
+        <ul>
+          <li><a href="{{ prefix }}/services/">{{ c.nav.services }}</a></li>
+          <li><a href="{{ prefix }}/work/">{{ c.nav.work }}</a></li>
+          <li><a href="{{ prefix }}/odoo/">{{ c.nav.odoo }}</a></li>
+          <li><a href="{{ prefix }}/about/">{{ c.nav.about }}</a></li>
+          <li><a href="{{ prefix }}/contact/">{{ c.nav.contact }}</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>{{ c.footer.contact }}</h2>
+        <ul>
+          <li><a href="mailto:{{ s.email }}" class="ltr">{{ s.email }}</a></li>
+          <li><a href="tel:{{ s.phone_link }}" class="ltr">{{ s.phone_display }}</a></li>
+          <li><a href="https://wa.me/{{ s.whatsapp }}" rel="noopener">{{ c.footer.whatsapp }}</a></li>
+          <li>{{ s.city_en if c.lang == 'en' else s.city_ar }}</li>
+          {% if s.linkedin %}<li><a href="{{ s.linkedin }}" rel="noopener">LinkedIn</a></li>{% endif %}
+          {% if s.instagram %}<li><a href="{{ s.instagram }}" rel="noopener">Instagram</a></li>{% endif %}
+          {% if s.facebook %}<li><a href="{{ s.facebook }}" rel="noopener">Facebook</a></li>{% endif %}
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© {{ s.year }} {{ c.footer.rights }}</span>
+      <a href="{{ alt_path }}" lang="{{ 'ar' if c.lang == 'en' else 'en' }}">{{ c.switch_label }}</a>
+    </div>
+  </div>
+</footer>
+
+<a class="wa-float" href="https://wa.me/{{ s.whatsapp }}" rel="noopener" aria-label="{{ c.cta_block.whatsapp }}">{{ icon_chat | safe }}</a>
+<script src="/assets/js/main.js?v={{ version }}" defer></script>
+</body>
+</html>

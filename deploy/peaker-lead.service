@@ -1,0 +1,26 @@
+# /etc/systemd/system/peaker-lead.service
+[Unit]
+Description=Peaker website lead endpoint (contact form -> Odoo CRM)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+User=peaker
+Group=peaker
+EnvironmentFile=/etc/peaker/lead.env
+ExecStart=/usr/bin/python3 /opt/peaker/lead_server.py
+Restart=always
+RestartSec=3
+
+# Hardening
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/var/lib/peaker
+ProtectKernelTunables=true
+ProtectControlGroups=true
+RestrictSUIDSGID=true
+
+[Install]
+WantedBy=multi-user.target

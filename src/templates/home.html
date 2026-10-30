@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+{% block main %}
+<section class="dark hero" aria-labelledby="hero-title">
+  <div class="wrap">
+    <div>
+      <h1 id="hero-title">{{ c.home.h1 }}</h1>
+      <p class="lead">{{ c.home.lead }}</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="{{ prefix }}/contact/">{{ c.home.primary }}</a>
+        <a class="btn btn-ghost" href="{{ prefix }}/services/">{{ c.home.secondary }}</a>
+      </div>
+    </div>
+    {{ stack | safe }}
+  </div>
+</section>
+
+<section class="section" aria-labelledby="pains-title">
+  <div class="wrap">
+    <h2 class="h2" id="pains-title">{{ c.home.pains_title }}</h2>
+    <ul class="pains">
+      {% for p in c.home.pains %}<li>{{ marker | safe }}<span>{{ p }}</span></li>{% endfor %}
+    </ul>
+    <p class="pains-close">{{ c.home.pains_close }}</p>
+  </div>
+</section>
+
+<section class="section mist" aria-labelledby="services-title">
+  <div class="wrap split">
+    <div class="split-head">
+      <h2 class="h2" id="services-title">{{ c.home.services_title }}</h2>
+      <p class="lead">{{ c.home.services_lead }}</p>
+    </div>
+    <div>
+      <ul class="service-grid">
+        {% for svc in c.services %}
+        <li><a href="{{ prefix }}/services/#{{ svc.id }}"><h3>{{ svc.name }}</h3><p>{{ svc.short }}</p></a></li>
+        {% endfor %}
+      </ul>
+      <a class="text-link all-services" href="{{ prefix }}/services/">{{ c.home.all_services }}</a>
+    </div>
+  </div>
+</section>
+
+<section class="section dark work-band" aria-labelledby="work-title">
+  {{ supergraphic | safe }}
+  <div class="wrap">
+    <h2 class="h2" id="work-title">{{ c.home.work_title }}</h2>
+    <p class="lead">{{ c.home.work_text }}</p>
+    <ul class="results">
+      {% for r in c.home.work_items %}<li><strong>{{ r.num }}</strong><span>{{ r.text }}</span></li>{% endfor %}
+    </ul>
+    <p class="work-games">{{ c.home.work_games }}</p>
+    <a class="btn btn-primary" href="{{ prefix }}/work/">{{ c.home.work_link }}</a>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="process-title">
+  <div class="wrap">
+    <h2 class="h2" id="process-title">{{ c.home.process_title }}</h2>
+    <ol class="steps">
+      {% for st in c.home.process %}<li><h3>{{ st.name }}</h3><p>{{ st.text }}</p></li>{% endfor %}
+    </ol>
+  </div>
+</section>
+
+<section class="section mist" aria-labelledby="who-title">
+  <div class="wrap">
+    <div class="who">
+      <h2 class="h2" id="who-title">{{ c.home.who_title }}</h2>
+      <p class="lead">{{ c.home.who_text }}</p>
+    </div>
+    <ul class="chips">{% for i in c.home.industries %}<li>{{ i }}</li>{% endfor %}</ul>
+  </div>
+</section>
+{% endblock %}

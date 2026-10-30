@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block main %}
+<section class="dark page-head" aria-labelledby="page-title">
+  {{ supergraphic | safe }}
+  <div class="wrap"><h1 id="page-title">{{ c.about_page.h1 }}</h1></div>
+</section>
+<section class="section">
+  <div class="wrap story">{% for p in c.about_page.story %}<p>{{ p }}</p>{% endfor %}</div>
+</section>
+<section class="section mist" aria-labelledby="values-title">
+  <div class="wrap">
+    <h2 class="h2" id="values-title">{{ c.about_page.values_title }}</h2>
+    <ul class="values">{% for v in c.about_page['values'] %}<li><h3>{{ marker | safe }}<span>{{ v.name }}</span></h3><p>{{ v.text }}</p></li>{% endfor %}</ul>
+    {% if founder_name %}
+    <h2 class="h2 founder-title">{{ c.about_page.founder_title }}</h2>
+    <div class="founder"><h3>{{ founder_name }}</h3><p>{{ founder_bio }}</p></div>
+    {% endif %}
+  </div>
+</section>
+{% endblock %}

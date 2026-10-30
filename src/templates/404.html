@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block main %}
+<section class="section notfound">
+  <div class="wrap">
+    <h1 class="h2">{{ c.notfound.h1 }}</h1>
+    <p class="lead nf-lead">{{ c.notfound.text }}</p>
+    <div class="hero-actions"><a class="btn btn-dark" href="{{ prefix }}/">{{ c.notfound.home }}</a></div>
+  </div>
+</section>
+{% endblock %}

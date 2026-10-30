@@ -1,0 +1,608 @@
+{
+  "lang": "en",
+  "dir": "ltr",
+  "switch_label": "العربية",
+  "skip": "Skip to content",
+  "nav": {
+    "services": "Services",
+    "work": "Work",
+    "about": "About",
+    "contact": "Contact",
+    "odoo": "Odoo ERP",
+    "cta": "Book a free call",
+    "menu": "Menu",
+    "close": "Close menu"
+  },
+  "logo_alt": "Peaker home",
+  "tagline": "From foundation to peak.",
+  "footer": {
+    "about": "Websites, online stores, business systems, games and marketing for businesses in Egypt and the Gulf.",
+    "pages": "Pages",
+    "contact": "Contact",
+    "whatsapp": "WhatsApp",
+    "rights": "Peaker. All rights reserved."
+  },
+  "cta_block": {
+    "title": "Tell us where things stand. We'll tell you the next step.",
+    "text": "A free 30-minute call. No slides, no pressure.",
+    "primary": "Book a free call",
+    "whatsapp": "Message us on WhatsApp"
+  },
+  "stack": {
+    "label": "Peaker builds in layers: infrastructure first, then systems and integrations, then websites, stores and marketing, with growth on top.",
+    "l1": "Infrastructure",
+    "l2": "Systems and integrations",
+    "l3": "Websites and stores",
+    "l4": "Marketing",
+    "peak": "Growth"
+  },
+  "home": {
+    "title": "Peaker | Websites, online stores, business systems and games",
+    "description": "Peaker is a software studio in Cairo building websites, online stores, ERP and integrations, custom software, games and marketing for businesses in Egypt and the Gulf.",
+    "h1": "We build the systems your business runs on. Then we help it grow.",
+    "lead": "Websites, online stores, business systems, integrations and games, plus the marketing to grow them. A Cairo studio working with businesses across Egypt and the Gulf.",
+    "primary": "Book a free call",
+    "secondary": "See our services",
+    "pains_title": "Most businesses we meet are running on workarounds.",
+    "pains": [
+      "A website nobody has touched in years.",
+      "An online store that doesn't know what's in stock.",
+      "Reports that take a week of Excel to produce.",
+      "A bug that costs money every day, and nobody wants to touch the code."
+    ],
+    "pains_close": "None of this is a people problem. It's a foundation problem, and it's fixable.",
+    "services_title": "What we do",
+    "services_lead": "One service or the whole build. Everything we deliver comes with someone to call after launch.",
+    "details": "Details",
+    "process_title": "How a project runs",
+    "process": [
+      {
+        "name": "Discover",
+        "text": "We sit with each team, map how work really flows, and agree the scope in writing."
+      },
+      {
+        "name": "Build",
+        "text": "We set everything up on a test copy, never on your live system, and show you each part as it's ready."
+      },
+      {
+        "name": "Go live",
+        "text": "We move your data, train your people and switch over on a planned date, with us on call."
+      },
+      {
+        "name": "Stay with you",
+        "text": "Thirty days of close support, then a care plan so the system keeps up with your business."
+      }
+    ],
+    "who_title": "Who we work with",
+    "who_text": "Growing businesses that need software built properly, and someone who stays after launch.",
+    "industries": [
+      "Retail and e-commerce",
+      "Distribution and trading",
+      "Game studios",
+      "Clinics and healthcare",
+      "Startups and SaaS",
+      "Professional services"
+    ],
+    "all_services": "See all services",
+    "work_title": "Work that runs every day.",
+    "work_text": "A retail chain in Riyadh runs its stores, POS network and online shop on a system we built. Here's what that looks like in numbers.",
+    "work_items": [
+      {
+        "num": "30+",
+        "text": "custom ERP modules running stores, POS, stock and reporting"
+      },
+      {
+        "num": "60–90 min",
+        "text": "to sync 10,272 products with images between the online store and the ERP"
+      },
+      {
+        "num": "Seconds",
+        "text": "for the POS to open, down from 20–30 minutes"
+      },
+      {
+        "num": "7,000+",
+        "text": "competitor prices tracked automatically"
+      }
+    ],
+    "work_games": "We also fix and build games: mobile titles for a French studio, in Unity and C#.",
+    "work_link": "See our work"
+  },
+  "services": [
+    {
+      "id": "websites",
+      "name": "Websites and landing pages",
+      "short": "Fast, bilingual sites and landing pages built around one job: turning visitors into enquiries.",
+      "long": "We write the copy and structure first, then design and build pages that load fast on phones, work in Arabic and English, and send every enquiry somewhere you'll see it.",
+      "includes": [
+        "Design and development",
+        "Arabic and English",
+        "Search basics and analytics"
+      ],
+      "fit": "Good fit if your site is old, slow, or doesn't bring in enquiries."
+    },
+    {
+      "id": "online-stores",
+      "name": "Online stores",
+      "short": "Stores on Salla, Odoo or custom builds, with product data that stays correct at thousands of items.",
+      "long": "We set up the store, the categories and the product content, then connect it to your stock so customers never buy what you don't have. We've built product pipelines for catalogues of more than 12,000 items.",
+      "includes": [
+        "Store setup and design",
+        "Product data and images at scale",
+        "Stock and order sync"
+      ],
+      "fit": "Good fit if you sell online, or want to, and your catalogue is too big to manage by hand."
+    },
+    {
+      "id": "erp",
+      "name": "ERP and CRM",
+      "short": "Odoo set up around how your business actually works, extended with our own modules where standard Odoo stops.",
+      "long": "We map how your teams work, then set up sales, inventory, purchasing, accounting, POS and CRM in one system. We've built more than 30 custom modules for a single retail chain, and we run Odoo Community, so you don't pay a license for every user.",
+      "includes": [
+        "Setup and custom modules",
+        "Data migration",
+        "Training for every role"
+      ],
+      "fit": "Good fit if your stock, sales or accounts live in spreadsheets, or your current system fights you.",
+      "link": {
+        "href": "/odoo/",
+        "label": "How we implement Odoo"
+      }
+    },
+    {
+      "id": "integrations",
+      "name": "Integrations and automation",
+      "short": "Connect your store, ERP, POS, payments and shipping so data moves by itself.",
+      "long": "Two systems that disagree cost you money every day. We connect them through APIs and webhooks, with scheduled jobs as a safety net, and automate the work people do by copy-paste, including price monitoring across competitor websites.",
+      "includes": [
+        "APIs and webhooks",
+        "Two-way sync",
+        "Scheduled data jobs and monitoring"
+      ],
+      "fit": "Good fit if someone on your team copies data between systems, or your store and stock disagree."
+    },
+    {
+      "id": "custom-software",
+      "name": "Custom software and tools",
+      "short": "Python back ends, dashboards, reports, kiosks and internal tools for the jobs off-the-shelf software won't do.",
+      "long": "From a self-order kiosk to a one-click reporting app, we build the specific tool your team needs, keep it small enough to maintain, and make sure it's safe to run on a live system.",
+      "includes": [
+        "Back ends and APIs",
+        "Dashboards and reports",
+        "Internal tools"
+      ],
+      "fit": "Good fit if you've been told \"the system can't do that\"."
+    },
+    {
+      "id": "games",
+      "name": "Game development",
+      "short": "Bug fixing, performance and live-ops support for mobile and web games, in Unity, C# and JavaScript.",
+      "long": "We reproduce the bugs behind player complaints, fix them without breaking anything else, and make games run smoothly on the low-end phones most players actually own. We also build small web games from scratch.",
+      "includes": [
+        "Bug fixing from player reports",
+        "Performance on low-end devices",
+        "Save and progression systems"
+      ],
+      "fit": "Good fit for studios with a backlog of player-reported bugs, or a game that stutters on cheap phones."
+    },
+    {
+      "id": "marketing",
+      "name": "Digital marketing",
+      "short": "Content, social media and ads that bring in leads, with a monthly report in plain language.",
+      "long": "We plan content around the questions your customers actually ask, run campaigns with a clear budget, and report each month on what worked and what we'll change.",
+      "includes": [
+        "Content and social media",
+        "Paid campaigns",
+        "Monthly reporting"
+      ],
+      "fit": "Good fit if you post without a plan, or pay for ads without knowing what they return."
+    },
+    {
+      "id": "design",
+      "name": "Branding and design",
+      "short": "Logos, brand identities, interface design and templates your team can actually use.",
+      "long": "A brand that holds together across your website, documents and social posts, delivered with the files and rules to keep it consistent after we hand it over.",
+      "includes": [
+        "Logo and identity",
+        "Interface design",
+        "Templates and guidelines"
+      ],
+      "fit": "Good fit if every document and post looks a little different."
+    },
+    {
+      "id": "full-builds",
+      "name": "Full builds",
+      "short": "Starting out or starting over? Brand, website, systems and marketing as one project, with one plan and one team.",
+      "long": "Instead of four suppliers who never talk to each other, you get one plan that starts with the foundation and finishes with marketing, launched in stages so you see progress every few weeks.",
+      "includes": [
+        "One project plan",
+        "One point of contact",
+        "Launch in stages"
+      ],
+      "fit": "Good fit if you're launching a business, or rebuilding one that grew faster than its systems."
+    },
+    {
+      "id": "care-plans",
+      "name": "Hosting and care plans",
+      "short": "Hosting, backups, updates and support hours every month, so what we built keeps working.",
+      "long": "Your systems and sites stay on fast, backed-up servers. We apply updates, handle version upgrades, and keep support hours ready for changes and questions.",
+      "includes": [
+        "Hosting and daily backups",
+        "Updates and upgrades",
+        "Monthly support hours"
+      ],
+      "fit": "Good fit for every client after launch."
+    },
+    {
+      "id": "white-label",
+      "name": "White label for agencies",
+      "short": "Your clients ask for systems, stores or integrations. We deliver the work under your name.",
+      "long": "Marketing and design agencies get asked for technical work they don't do in-house. We build it behind the scenes at wholesale rates, and you keep the client relationship.",
+      "includes": [
+        "Delivery under your brand",
+        "Clear wholesale rates",
+        "No contact with your clients unless you want it"
+      ],
+      "fit": "Good fit for agencies that want to offer more without hiring for it."
+    }
+  ],
+  "services_page": {
+    "title": "Services | Peaker",
+    "description": "Websites, online stores, ERP and CRM, integrations, custom software, game development, marketing, design, full builds, hosting and white-label delivery.",
+    "h1": "Services",
+    "lead": "Everything a growing business needs built properly, from the systems underneath to the marketing on top.",
+    "includes": "What's included"
+  },
+  "odoo_page": {
+    "title": "Odoo ERP and CRM | Peaker",
+    "description": "Odoo ERP and CRM implementation on Community with Peaker's own modules: enterprise-level features without per-user license fees.",
+    "h1": "Odoo ERP and CRM, built around your business",
+    "lead": "We implement Odoo Community with modules we built ourselves. You get the features a growing business needs, one system for the whole company, and no license fee for every user.",
+    "apps_title": "One system for the whole company",
+    "apps": [
+      {
+        "name": "Sales and CRM",
+        "text": "Leads, quotes, orders and follow-ups in one pipeline."
+      },
+      {
+        "name": "Inventory",
+        "text": "Stock by warehouse and location, transfers and counts that match the shelf."
+      },
+      {
+        "name": "Purchasing",
+        "text": "Requests, supplier quotes and purchase orders tied to stock."
+      },
+      {
+        "name": "Accounting and invoicing",
+        "text": "Invoices, payments, bank reconciliation and reports."
+      },
+      {
+        "name": "E-invoicing",
+        "text": "Setup for Egypt's ETA e-invoicing requirements."
+      },
+      {
+        "name": "Projects and timesheets",
+        "text": "Tasks, deadlines and hours per client or job."
+      },
+      {
+        "name": "Point of sale",
+        "text": "Shop counters connected to the same stock and accounts."
+      },
+      {
+        "name": "Employees",
+        "text": "Records, attendance and leave in one place."
+      }
+    ],
+    "modules_title": "Our modules",
+    "modules_text": "Odoo Community is open source and free to use. Some features growing businesses depend on are only in Odoo's paid edition, so we built our own modules to cover them. The same approach runs Golden Care, a retail chain in Riyadh, on more than 30 custom modules.",
+    "phases_title": "How implementation works",
+    "phases": [
+      {
+        "name": "Discover",
+        "text": "Workshops with each department to map how work flows today."
+      },
+      {
+        "name": "Design",
+        "text": "A written scope: what standard Odoo covers, what our modules cover, what we build."
+      },
+      {
+        "name": "Build",
+        "text": "Setup on a test copy. You see each part as it's ready."
+      },
+      {
+        "name": "Migrate",
+        "text": "Your data moves across through templates, and you check the numbers."
+      },
+      {
+        "name": "Test",
+        "text": "Your own staff run real scenarios before anything goes live."
+      },
+      {
+        "name": "Train",
+        "text": "Short sessions per role, recorded, with written guides."
+      },
+      {
+        "name": "Go live",
+        "text": "Switch-over on a planned date, with us on call."
+      },
+      {
+        "name": "Support",
+        "text": "Thirty days of close support, then your care plan."
+      }
+    ],
+    "phases_note": "You sign off each phase before the next one starts.",
+    "hosting_title": "Hosting",
+    "hosting_text": "Your Odoo runs on your own server or on ours, with daily backups we test by restoring them. Your data stays yours, and you can export it at any time.",
+    "faq_title": "Questions we get asked",
+    "faq": [
+      {
+        "q": "Do we need to pay Odoo for licenses?",
+        "a": "No. We use Odoo Community, which is open source, plus our own modules. If you'd rather use Odoo Enterprise, we can implement that too, and you pay Odoo directly for the licenses."
+      },
+      {
+        "q": "Can you move our data from Excel or another system?",
+        "a": "Yes. We give you templates for customers, products, stock and opening balances, import them on a test copy first, and you check the numbers before go-live."
+      },
+      {
+        "q": "How long does it take?",
+        "a": "It depends on the number of departments and how much needs building. You get a written timeline with each phase dated before you pay anything."
+      },
+      {
+        "q": "What happens after go-live?",
+        "a": "Thirty days of close support, then a monthly care plan for hosting, backups, upgrades and support hours. You can cancel the plan with a month's notice."
+      }
+    ]
+  },
+  "about_page": {
+    "title": "About | Peaker",
+    "description": "Peaker is a software studio in Cairo building websites, stores, business systems and games for clients in Egypt, the Gulf and Europe.",
+    "h1": "Software that has to work on Monday morning.",
+    "story": [
+      "Peaker grew out of four years of building software that people depend on: an ERP and online store that run a retail chain in Riyadh, fixes for a French studio's mobile games, and websites and tools for small businesses.",
+      "Across all of it, the same thing kept breaking: the foundation. Unchecked input, untested edge cases, systems that didn't talk to each other.",
+      "So we build from the foundation up. The system first, because everything else depends on it. Then the website, the store and the marketing, built on something solid."
+    ],
+    "values_title": "How we work",
+    "values": [
+      {
+        "name": "Built properly",
+        "text": "We would rather deliver a week late than hand over something that breaks."
+      },
+      {
+        "name": "The number up front",
+        "text": "You know the price, the date and what's not included before you pay."
+      },
+      {
+        "name": "Still here after launch",
+        "text": "A project isn't done at go-live. We stay reachable and fix what we built."
+      },
+      {
+        "name": "We use what we sell",
+        "text": "Peaker runs on its own Odoo. If it isn't good enough for us, it isn't good enough for you."
+      }
+    ],
+    "founder_title": "Who you'll work with"
+  },
+  "contact_page": {
+    "title": "Contact | Peaker",
+    "description": "Book a free 30-minute call with Peaker about ERP, websites or marketing for your business.",
+    "h1": "Let's talk",
+    "lead": "Tell us a little about your business. We reply within one working day.",
+    "form": {
+      "name": "Your name",
+      "company": "Company",
+      "email": "Email",
+      "phone": "Phone or WhatsApp",
+      "service": "What do you need help with?",
+      "service_options": [
+        "Website or landing page",
+        "Online store",
+        "ERP and CRM",
+        "Integrations and automation",
+        "Custom software",
+        "Game development",
+        "Digital marketing",
+        "Branding and design",
+        "Full build",
+        "White label for agencies",
+        "Not sure yet"
+      ],
+      "message": "Tell us about your business",
+      "message_hint": "What you do, how many people, and what's not working today.",
+      "optional": "optional",
+      "submit": "Send message",
+      "sending": "Sending…",
+      "privacy": "We only use your details to reply to you.",
+      "success": "Message sent. We'll reply within one working day.",
+      "error": "We couldn't send your message. Please email us or message us on WhatsApp instead.",
+      "invalid": "Please fill in your name, email and message."
+    },
+    "direct_title": "Prefer to reach us directly?",
+    "next_title": "What happens next",
+    "next": [
+      "We reply within one working day.",
+      "A free 30-minute call about where things stand.",
+      "A written proposal with the price, timeline and what's included."
+    ]
+  },
+  "notfound": {
+    "title": "Page not found | Peaker",
+    "h1": "This page doesn't exist.",
+    "text": "The link may be old or mistyped.",
+    "home": "Go to the home page"
+  },
+  "work_page": {
+    "title": "Work | Peaker",
+    "description": "Selected work: an ERP and online store for a retail chain in Riyadh, mobile game fixes for a French studio, landing pages and small business projects.",
+    "h1": "Work",
+    "lead": "Software that runs every day: an ERP and online store for a retail chain in Riyadh, fixes for a French studio's mobile games, and websites and tools for small businesses.",
+    "results_label": "Results",
+    "visit": "Visit the store",
+    "open_demo": "Open the page",
+    "play": "Play it",
+    "gc": {
+      "client": "Golden Care",
+      "where": "Cosmetics retail chain in Riyadh, Saudi Arabia",
+      "tags": [
+        "Online store",
+        "ERP",
+        "Integrations",
+        "Point of sale"
+      ],
+      "summary": "Several stores, a POS network and an online shop, all running on one system we built and maintain: a bilingual Salla storefront and an Odoo 18 Community back office with more than 30 custom modules.",
+      "results": [
+        {
+          "num": "30+",
+          "text": "custom Odoo modules running the stores, POS, stock, reporting and audit"
+        },
+        {
+          "num": "60–90 min",
+          "text": "to sync 10,272 products with images between store and ERP, about 8–10× faster than the connector it replaced"
+        },
+        {
+          "num": "Seconds",
+          "text": "for the POS to open, down from 20–30 minutes"
+        },
+        {
+          "num": "7,000+",
+          "text": "competitor products price-tracked across a dozen Saudi retailers"
+        }
+      ],
+      "highlights": [
+        {
+          "name": "The online store",
+          "text": "A bilingual Arabic and English storefront on Salla, fed by a product pipeline that delivers 12,700 SKUs with images, brands and three-level categories straight from the ERP."
+        },
+        {
+          "name": "Store and ERP in sync",
+          "text": "Products, stock, orders, customers and brands flow both ways in real time through webhooks, with scheduled jobs as a fallback. Parallel workers and batching turned a multi-day sync into about an hour."
+        },
+        {
+          "name": "The 20-minute POS freeze",
+          "text": "Cashiers waited up to half an hour for the POS to open, and loyalty rewards crashed the screen. We traced it to a third-party loading module and preloaded the reward products, without touching the vendor's code. The POS now opens in seconds."
+        },
+        {
+          "name": "An audit trail on everything",
+          "text": "Who changed what, on every record, with user, device and session captured, and no slowdown at checkout."
+        },
+        {
+          "name": "Shop-floor stock counts",
+          "text": "Staff count stock with handheld barcode scanners; confirmed counts adjust inventory automatically, with a full before-and-after history."
+        },
+        {
+          "name": "Competitor price monitor",
+          "text": "Paste any competitor's product link and the system checks the price on a schedule, keeps the history and sends alerts when prices move."
+        },
+        {
+          "name": "Reports and sales targets",
+          "text": "One-click profit, loss and vendor reports that can email themselves daily, weekly or monthly, plus live sales-target cards for every employee."
+        },
+        {
+          "name": "Also built",
+          "text": "A customer self-order kiosk, receipt printing from the browser, price labels in eight formats with full Arabic support, expiry tracking and a product API."
+        }
+      ],
+      "images": [
+        {
+          "src": "gc-store.jpg",
+          "alt": "Golden Care online store home page in Arabic",
+          "cap": "The online store, in Arabic and English"
+        },
+        {
+          "src": "gc-home.jpg",
+          "alt": "Odoo home screen with custom Golden Care apps",
+          "cap": "The back office: most of these apps are custom"
+        },
+        {
+          "src": "gc-price-monitor.jpg",
+          "alt": "Price monitor dashboard tracking competitor products",
+          "cap": "Competitor price monitor"
+        },
+        {
+          "src": "gc-cycle-count.jpg",
+          "alt": "Cycle count dashboard showing today's progress",
+          "cap": "Barcode stock counting"
+        },
+        {
+          "src": "gc-full-reports.jpg",
+          "alt": "Full Reports app with one-click reports",
+          "cap": "One-click reports"
+        },
+        {
+          "src": "gc-sales-target.jpg",
+          "alt": "Sales target cards per employee",
+          "cap": "Sales targets per employee"
+        }
+      ]
+    },
+    "osg": {
+      "client": "Old Skull Games",
+      "where": "Independent game studio, France",
+      "tags": [
+        "Game development",
+        "Unity and C#",
+        "Mobile performance"
+      ],
+      "summary": "An independent studio making mobile and PC games, including co-developments with major publishers. We fixed player-reported bugs across their mobile titles.",
+      "intro": "Mobile players don't file bug reports. They leave one-star reviews. The job was to find the bug behind each complaint, reproduce it on real devices, and ship a fix small enough to trust in a live game.",
+      "approach_title": "How we worked",
+      "approach": [
+        "Reproduce first: every fix starts from a player's report and a reliable way to trigger it.",
+        "Test on low-end Android phones, where most players actually are.",
+        "Ship the smallest fix that solves the problem, so nothing else breaks.",
+        "Protect player progress above everything else."
+      ],
+      "fixes_title": "Three fixes, in plain language",
+      "problem": "The problem",
+      "fix": "The fix",
+      "fixes": [
+        {
+          "name": "Negative gold after a few days away",
+          "problem": "An idle game calculated offline earnings in a number type that overflowed after about a day. Returning players came back to negative gold.",
+          "fix": "Moved the maths to a wider type, capped the offline window at the design limit, and made sure currency can never drop below its previous value."
+        },
+        {
+          "name": "Lost progress when Android closed the app",
+          "problem": "If the phone killed the app in the middle of saving, the save file was left half-written and players lost everything.",
+          "fix": "Saves now go to a temporary file first and replace the real one in a single step. The last good save is kept as a backup and checked before loading."
+        },
+        {
+          "name": "Stutter on budget phones",
+          "problem": "Every coin pickup created and destroyed a particle effect. On low-end phones, the memory clean-up showed up as visible stutter in the busiest screens.",
+          "fix": "Pooled the effects: a handful are prepared in advance and reused, so collecting coins costs almost nothing."
+        }
+      ],
+      "code_title": "What the save fix looks like",
+      "code_note": "Examples are simplified and stripped of the studio's code, but each is a real kind of bug we fixed.",
+      "vault_title": "Vault Runner",
+      "vault_text": "A small arcade game we built in plain JavaScript: smooth 60 fps on phones and desktops, touch and keyboard controls, and difficulty that ramps as you play."
+    },
+    "lp": {
+      "title": "Landing pages",
+      "text": "Three concept pages in three visual languages, each built around a single call to action.",
+      "items": [
+        {
+          "name": "Lumen",
+          "type": "Analytics software",
+          "img": "lumen-analytics.jpg",
+          "href": "demos/lumen-analytics.html"
+        },
+        {
+          "name": "Ashkar",
+          "type": "Online game server",
+          "img": "ashkar-online.jpg",
+          "href": "demos/ashkar-online.html"
+        },
+        {
+          "name": "Stride",
+          "type": "Running app",
+          "img": "stride-app.jpg",
+          "href": "demos/stride-app.html"
+        }
+      ]
+    },
+    "sb": {
+      "title": "Small business projects",
+      "text": "Landing pages, store setups, small Python tools and urgent fixes for shop owners, creators, students and startups. Most came by referral, and most came back."
+    }
+  }
+}
