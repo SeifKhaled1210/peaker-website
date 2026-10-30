@@ -1,0 +1,6 @@
+<span class="m-win"><span class="m-bar"><i></i><i></i><i></i><span>status</span></span>
+<span class="m-status">
+  <span class="m-head"><span class="pulse"></span><b>{{ c.mock.status }}</b></span>
+  <span class="m-uptime">{% for i in range(30) %}<i></i>{% endfor %}</span>
+  <span class="m-rows"><span><i>{{ ic.check | safe }}</i>{{ c.mock.backups }}</span><span><i>{{ ic.check | safe }}</i>{{ c.mock.updates }}</span><span><i>{{ ic.check | safe }}</i>{{ c.mock.security }}</span></span>
+</span></span>

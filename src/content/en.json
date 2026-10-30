@@ -5,13 +5,15 @@
   "skip": "Skip to content",
   "nav": {
     "services": "Services",
-    "work": "Work",
+    "work": "Our Work",
     "about": "About",
     "contact": "Contact",
     "odoo": "Odoo ERP",
     "cta": "Book a free call",
     "menu": "Menu",
-    "close": "Close menu"
+    "close": "Close menu",
+    "all_services": "All services",
+    "services_menu": "Explore our services"
   },
   "logo_alt": "Peaker home",
   "tagline": "From foundation to peak.",
@@ -38,19 +40,19 @@
   },
   "home": {
     "title": "Peaker | Websites, online stores, business systems and games",
-    "description": "Peaker is a software studio in Cairo building websites, online stores, ERP and integrations, custom software, games and marketing for businesses in Egypt and the Gulf.",
+    "description": "Peaker builds websites, online stores, ERP systems, integrations, custom software and games, with the marketing to grow them.",
     "h1": "We build the systems your business runs on. Then we help it grow.",
-    "lead": "Websites, online stores, business systems, integrations and games, plus the marketing to grow them. A Cairo studio working with businesses across Egypt and the Gulf.",
+    "lead": "Websites, online stores, business systems, integrations and games, with the marketing to grow them. Built properly, and supported long after launch.",
     "primary": "Book a free call",
     "secondary": "See our services",
-    "pains_title": "Most businesses we meet are running on workarounds.",
+    "pains_title": "The problems we solve every day.",
     "pains": [
       "A website nobody has touched in years.",
       "An online store that doesn't know what's in stock.",
       "Reports that take a week of Excel to produce.",
       "A bug that costs money every day, and nobody wants to touch the code."
     ],
-    "pains_close": "None of this is a people problem. It's a foundation problem, and it's fixable.",
+    "pains_close": "We fix the foundation, so everything built on it performs.",
     "services_title": "What we do",
     "services_lead": "One service or the whole build. Everything we deliver comes with someone to call after launch.",
     "details": "Details",
@@ -117,19 +119,8 @@
       "games"
     ],
     "h1_end": "that work on Monday morning.",
-    "trust_label": "Recent work for",
-    "trust": [
-      {
-        "name": "Golden Care",
-        "where": "Retail chain, Riyadh"
-      },
-      {
-        "name": "Old Skull Games",
-        "where": "Game studio, France"
-      }
-    ],
-    "chip1": "30+ custom ERP modules",
-    "chip2": "POS opens in seconds",
+    "chip1": "Arabic and English",
+    "chip2": "Fast on every device",
     "scroll": "Scroll",
     "game_title": "Take a break. Play something we built.",
     "game_text": "Vault Runner is a small arcade game written in plain JavaScript. Collect coins, dodge the chasers, and see how far you get.",
@@ -216,14 +207,15 @@
     {
       "id": "marketing",
       "name": "Digital marketing",
-      "short": "Content, social media and ads that bring in leads, with a monthly report in plain language.",
-      "long": "We plan content around the questions your customers actually ask, run campaigns with a clear budget, and report each month on what worked and what we'll change.",
+      "short": "Strategy, content, paid media and account management that turn attention into customers.",
+      "long": "We build your digital marketing strategy, create the content, run paid campaigns across the platforms your customers use, and manage your accounts day to day, with a clear monthly report on what's working and what we'll change.",
       "includes": [
-        "Content and social media",
-        "Paid campaigns",
-        "Monthly reporting"
+        "Account management",
+        "Content creation",
+        "Paid media",
+        "Digital marketing strategies"
       ],
-      "fit": "Good fit if you post without a plan, or pay for ads without knowing what they return."
+      "fit": "Good fit if you post without a plan, or spend on ads without knowing what they return."
     },
     {
       "id": "design",
@@ -383,14 +375,14 @@
   },
   "about_page": {
     "title": "About | Peaker",
-    "description": "Peaker is a software studio in Cairo building websites, stores, business systems and games for clients in Egypt, the Gulf and Europe.",
-    "h1": "Software that has to work on Monday morning.",
+    "description": "Founded in 2023, Peaker builds websites, online stores, business systems and games, with the marketing to grow them.",
+    "h1": "Built properly. Supported long after launch.",
     "story": [
-      "Peaker grew out of four years of building software that people depend on: an ERP and online store that run a retail chain in Riyadh, fixes for a French studio's mobile games, and websites and tools for small businesses.",
-      "Across all of it, the same thing kept breaking: the foundation. Unchecked input, untested edge cases, systems that didn't talk to each other.",
-      "So we build from the foundation up. The system first, because everything else depends on it. Then the website, the store and the marketing, built on something solid."
+      "Peaker was founded in 2023 on years of hands-on work: an ERP and online store that run a retail chain in Riyadh, fixes for an independent game studio's mobile titles, and websites and tools for growing businesses.",
+      "Across every project, the same thing decided whether software succeeded: the foundation. Clean data, systems that talk to each other, and code that holds up under real use.",
+      "That is where we start. The system first, because everything depends on it. Then the website, the store and the marketing, built on something solid."
     ],
-    "values_title": "How we work",
+    "values_title": "Our values",
     "values": [
       {
         "name": "Built properly",
@@ -409,7 +401,26 @@
         "text": "Peaker runs on its own Odoo. If it isn't good enough for us, it isn't good enough for you."
       }
     ],
-    "founder_title": "Who you'll work with"
+    "founder_title": "Who you'll work with",
+    "lead": "Founded in 2023, Peaker designs, builds and grows the digital foundation businesses depend on.",
+    "facts": [
+      {
+        "num": "2023",
+        "text": "Founded"
+      },
+      {
+        "num": "11",
+        "text": "Services under one roof"
+      },
+      {
+        "num": "2",
+        "text": "Languages, Arabic and English"
+      }
+    ],
+    "mission_title": "Mission",
+    "mission": "To give growing businesses the digital foundation they need to perform: reliable systems, websites and marketing, built properly and supported long after launch.",
+    "vision_title": "Vision",
+    "vision": "To be the partner growing businesses trust first when they are ready to scale, known for work that lasts and people who stay."
   },
   "contact_page": {
     "title": "Contact | Peaker",
@@ -460,9 +471,9 @@
     "home": "Go to the home page"
   },
   "work_page": {
-    "title": "Work | Peaker",
+    "title": "Our Work | Peaker",
     "description": "Selected work: an ERP and online store for a retail chain in Riyadh, mobile game fixes for a French studio, landing pages and small business projects.",
-    "h1": "Work",
+    "h1": "Our Work",
     "lead": "Software that runs every day: an ERP and online store for a retail chain in Riyadh, fixes for a French studio's mobile games, and websites and tools for small businesses.",
     "results_label": "Results",
     "visit": "Visit the store",
@@ -645,5 +656,25 @@
     "Branding",
     "Hosting"
   ],
-  "process_step": "Step"
+  "process_step": "Step",
+  "mock": {
+    "store": "Store",
+    "erp": "ERP",
+    "pos": "POS",
+    "synced": "Synced",
+    "strategy": "Strategy",
+    "content": "Content",
+    "paid": "Paid media",
+    "accounts": "Accounts",
+    "brand": "Brand",
+    "website": "Website",
+    "systems": "Systems",
+    "marketing": "Marketing",
+    "status": "All systems operational",
+    "backups": "Backups",
+    "updates": "Updates",
+    "security": "Security",
+    "agency": "Your agency",
+    "sent": "✓ report sent"
+  }
 }

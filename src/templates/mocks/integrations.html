@@ -1,0 +1,8 @@
+<span class="m-sync">
+  <span class="m-node">{{ ic['online-stores'] | safe }}<small>{{ c.mock.store }}</small></span>
+  <span class="m-line"><i></i></span>
+  <span class="m-node hub">{{ ic['erp'] | safe }}<small>{{ c.mock.erp }}</small></span>
+  <span class="m-line rev"><i></i></span>
+  <span class="m-node">{{ ic['websites'] | safe }}<small>{{ c.mock.pos }}</small></span>
+</span>
+<span class="m-ok">{{ ic.check | safe }}<span>{{ c.mock.synced }}</span></span>

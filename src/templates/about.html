@@ -1,22 +1,40 @@
 {% extends "base.html" %}
+{% set a = c.about_page %}
 {% block main %}
-{% set head_title = c.about_page.h1 %}{% set head_lead = none %}{% set head_cta = false %}
+{% set head_title = a.h1 %}{% set head_lead = a.lead %}{% set head_cta = false %}
 {% include "_pagehead.html" %}
 <section class="section">
-  <div class="wrap story">
-    <p class="big" data-reveal>{{ c.about_page.story[0] }}</p>
-    <div data-reveal data-d="1">{% for p in c.about_page.story[1:] %}<p>{{ p }}</p>{% endfor %}</div>
+  <div class="wrap">
+    <div class="story">
+      <p class="big" data-reveal>{{ a.story[0] }}</p>
+      <div data-reveal data-d="1">{% for p in a.story[1:] %}<p>{{ p }}</p>{% endfor %}</div>
+    </div>
+    <ul class="facts">{% for f in a.facts %}<li data-reveal data-d="{{ loop.index0 }}"><strong>{{ f.num }}</strong><span>{{ f.text }}</span></li>{% endfor %}</ul>
   </div>
 </section>
-<section class="section mist" aria-labelledby="values-title">
+<section class="section mist" aria-label="{{ a.mission_title }} / {{ a.vision_title }}">
+  <div class="wrap mv">
+    <article class="mission" data-reveal>
+      {{ supergraphic | safe }}
+      <h2 class="label">{{ ic.target | safe }}{{ a.mission_title }}</h2>
+      <p>{{ a.mission }}</p>
+    </article>
+    <article class="vision" data-reveal data-d="1">
+      <svg class="bgmark" viewBox="0 0 100 80" aria-hidden="true"><path fill="currentColor" d="M50 0 L72 22 L28 22 Z"/><path fill="currentColor" d="M0 80 L50 30 L100 80 L84 80 L50 46 L16 80 Z"/></svg>
+      <h2 class="label">{{ ic.eye | safe }}{{ a.vision_title }}</h2>
+      <p>{{ a.vision }}</p>
+    </article>
+  </div>
+</section>
+<section class="section" aria-labelledby="values-title">
   <div class="wrap">
-    <div class="section-head"><h2 class="h2" id="values-title" data-reveal>{{ c.about_page.values_title }}</h2></div>
-    <ul class="values">{% for v in c.about_page['values'] %}<li data-reveal data-d="{{ loop.index0 }}"><span class="num">{{ loop.index }}</span><h3>{{ v.name }}</h3><p>{{ v.text }}</p></li>{% endfor %}</ul>
+    <div class="section-head"><h2 class="h2" id="values-title" data-reveal>{{ a.values_title }}</h2></div>
+    <ul class="values">{% for v in a['values'] %}<li data-reveal data-d="{{ loop.index0 }}"><span class="num">{{ '%02d' % loop.index }}</span><h3>{{ v.name }}</h3><p>{{ v.text }}</p></li>{% endfor %}</ul>
     {% if founder_name %}
     <div class="founder" data-reveal>
       {{ supergraphic | safe }}
       <span class="avatar" aria-hidden="true">{{ founder_initials }}</span>
-      <div><p class="role">{{ c.about_page.founder_title }}</p><h3>{{ founder_name }}</h3><p>{{ founder_bio }}</p></div>
+      <div><p class="role">{{ a.founder_title }}</p><h3>{{ founder_name }}</h3><p>{{ founder_bio }}</p></div>
     </div>
     {% endif %}
   </div>

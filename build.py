@@ -51,13 +51,20 @@ ICONS = {
     "check": _i('<path d="m5 12.5 4.5 4.5L19 7.5"/>', "2.6"),
     "bolt": _i('<path d="M13 2 4 14h7l-1 8 9-12h-7l1-8Z"/>', "2"),
     "play": '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M7 4.5v15l13-7.5-13-7.5Z"/></svg>',
+    "globe": _i('<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 3.8 5.7 3.8 9s-1.3 6.3-3.8 9c-2.5-2.7-3.8-5.7-3.8-9S9.5 5.7 12 3Z"/>', "2"),
+    "target": _i('<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5"/>', "2"),
+    "eye": _i('<path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/>', "2"),
     "chat": ICON_CHAT, "mail": ICON_MAIL, "phone": ICON_PHONE,
 }
 
 BENTO = {
     "websites": {"cls": "span-2 row-2 photo", "img": "lumen-analytics.webp"},
-    "online-stores": {"cls": "span-2 photo", "img": "gc-store-sm.webp"},
+    "online-stores": {"cls": "span-2"},
+    "custom-software": {"cls": "span-2"},
     "games": {"cls": "span-2 photo", "img": "vault-runner-sm.webp"},
+    "marketing": {"cls": "span-2"},
+    "care-plans": {"cls": "span-2"},
+    "white-label": {"cls": "span-2"},
 }
 
 

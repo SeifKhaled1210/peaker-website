@@ -37,6 +37,17 @@
     document.addEventListener("keydown", function (e) { if (e.key === "Escape" && panel.classList.contains("open")) { setOpen(false); btn.focus(); } });
   }
 
+  /* ---------- services dropdown ---------- */
+  var drop = document.querySelector(".has-drop");
+  if (drop) {
+    var dbtn = drop.querySelector(".drop-btn");
+    var setDrop = function (open) { drop.classList.toggle("open", open); dbtn.setAttribute("aria-expanded", open ? "true" : "false"); };
+    dbtn.addEventListener("click", function (e) { e.stopPropagation(); setDrop(!drop.classList.contains("open")); });
+    document.addEventListener("click", function (e) { if (!drop.contains(e.target)) setDrop(false); });
+    drop.addEventListener("keydown", function (e) { if (e.key === "Escape") { setDrop(false); dbtn.focus(); } });
+    drop.addEventListener("focusout", function (e) { if (window.innerWidth > 1000 && !drop.contains(e.relatedTarget)) setDrop(false); });
+  }
+
   /* ---------- hero: rotating words ---------- */
   var rot = document.querySelector(".rotator");
   if (rot && !reduce) {
